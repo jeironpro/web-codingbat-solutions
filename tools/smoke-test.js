@@ -1,8 +1,8 @@
 /*
  * Smoke test de la web (sin navegador).
  * Comprueba que js/data.js contiene los ejercicios y que js/app.js
- * renderiza las estadísticas, los chips y las tarjetas sin errores,
- * usando un stub mínimo del DOM.
+ * renderiza las estadísticas, los chips, las filas y el estado vacío
+ * sin errores, usando un stub mínimo del DOM.
  *
  * Uso: node tools/smoke-test.js
  */
@@ -52,10 +52,10 @@ function load() {
 
 const { elements, data } = load();
 const resultsHtml = elements['results'].innerHTML;
-const statsHtml = elements['stats'].innerHTML;
+const statsText = elements['stats'].textContent;
 const countText = elements['count'].textContent;
-const langChipsHtml = elements['lang-chips'].innerHTML;
-const catChipsHtml = elements['cat-chips'].innerHTML;
+const langChipLabels = elements['lang-chips'].children.map(c => c.textContent);
+const catChipLabels = elements['cat-chips'].children.map(c => c.textContent);
 
 const failures = [];
 function check(name, cond) {
@@ -65,15 +65,14 @@ function check(name, cond) {
 
 console.log('Smoke test');
 check('se cargaron los ejercicios (222)', data.length === 222);
-check('las estadísticas muestran el total', statsHtml.includes('222'));
-const langChipLabels = elements['lang-chips'].children.map(c => c.textContent);
-const catChipLabels = elements['cat-chips'].children.map(c => c.textContent);
-check('los chips de lenguaje se renderizan', langChipLabels.join(',') === 'Todos,Java,Python');
-check('los chips de categoría se renderizan', catChipLabels.includes('Todas') && catChipLabels.includes('Cadenas') && catChipLabels.includes('Lógica'));
-check('el contador muestra el total', countText.includes('222'));
-check('los resultados contienen el primer ejercicio', resultsHtml.includes(data[0].name));
+check('las estadísticas del hero muestran el total', statsText.includes('222'));
+check('los chips de lenguaje se renderizan', langChipLabels.join(',') === 'todos,java,python');
+check('los chips de categoría se renderizan', catChipLabels.includes('todas') && catChipLabels.includes('cadenas') && catChipLabels.includes('lógica'));
+check('el contador muestra el total', countText.includes('222 ejercicios'));
+check('los resultados contienen el primer ejercicio', resultsHtml.includes(data[0].name + '()'));
 check('los resultados incluyen el código resaltado', resultsHtml.includes('class="tok '));
-check('los resultados incluyen botón de copiar', resultsHtml.includes('Copiar'));
+check('los resultados incluyen botón de copiar', resultsHtml.includes('copiar'));
+check('los ejemplos usan la flecha de acento', resultsHtml.includes('class="arrow"'));
 check('cada ejercicio tiene lenguaje válido', data.every(e => ['java', 'python'].includes(e.lang)));
 check('cada ejercicio tiene categoría y nivel', data.every(e => e.category && e.level));
 
@@ -87,19 +86,23 @@ check('la búsqueda filtra resultados',
   elements['results'].innerHTML.toLowerCase().includes('fizz'));
 
 /* Filtro de lenguaje: hacer clic en el chip Java */
-function fakeClick(chip) {
-  elements['lang-chips'].listeners['click'][0]({ target: { closest: sel => (sel === '.chip' ? chip : null) } });
+function fakeChipClick(container, index) {
+  container.listeners['click'][0]({ target: { closest: sel => (sel === '.chip' ? container.children[index] : null) } });
 }
-fakeClick(elements['lang-chips'].children[1]); // chip Java
+fakeChipClick(elements['lang-chips'], 1); // chip java
 check('el filtro Java muestra solo ejercicios de Java',
-  elements['count'].textContent.includes('de 222') &&
-  elements['lang-chips'].children.some(c => c.textContent === 'Java' && c.className.includes('active')));
+  elements['count'].textContent.includes(' de 222') &&
+  elements['lang-chips'].children.some(c => c.textContent === 'java' && c.className.includes('active')));
 
-/* Restablecer búsqueda y filtros para el estado inicial */
-searchEl.value = '';
+/* Estado vacío y limpiar filtros */
+searchEl.value = 'zzznadaexiste';
 searchEl.listeners['input'][0]();
-fakeClick(elements['lang-chips'].children[0]); // chip Todos
-check('se restablece el listado completo', elements['count'].textContent.includes('222 ejercicios'));
+check('la búsqueda sin coincidencias muestra el estado vacío', elements['empty'].hidden === false);
+elements['clear'].listeners['click'][0]();
+check('limpiar filtros restablece el listado completo',
+  elements['count'].textContent.includes('222 ejercicios') &&
+  elements['empty'].hidden === true &&
+  searchEl.value === '');
 
 if (failures.length) {
   console.error('\nFALLOS: ' + failures.join(', '));
