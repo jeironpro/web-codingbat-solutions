@@ -20,7 +20,7 @@ window.EXERCISES = [
     "code": "public String HolaNombre(String nombre) {\n        return \"Hola \" + nombre + \"!\";\n    }"
   },
   {
-    "name": "makeOutWord",
+    "name": "hacerCadenaSalida",
     "lang": "java",
     "category": "Cadenas",
     "level": "Básico",
@@ -31,7 +31,7 @@ window.EXERCISES = [
       "hacerCadenaSalida(\"<<>>\", \"WooHoo\") → \"<<WooHoo>>\"",
       "hacerCadenaSalida(\"[[]]\", \"word\") → \"[[word]]\""
     ],
-    "code": "public String makeOutWord(String salida, String palabra) {\n        return salida.substring(0, 2) + palabra + salida.substring(2, salida.length());\n    }"
+    "code": "public String hacerCadenaSalida(String salida, String palabra) {\n        return salida.substring(0, 2) + palabra + salida.substring(2, salida.length());\n    }"
   },
   {
     "name": "primeraMitad",
