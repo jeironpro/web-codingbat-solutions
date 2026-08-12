@@ -281,9 +281,51 @@ a:hover { text-decoration: underline; }
   font-variant-numeric: tabular-nums;
 }
 
+/* ---------- Paginación ---------- */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  padding-block: var(--space-sm) 0;
+}
+
+.pagination + .results { padding-top: var(--space-lg); }
+
+.page-btn {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  background: transparent;
+  border: var(--rule-hair) solid var(--color-rule);
+  border-radius: 999px;
+  padding: var(--space-2xs) var(--space-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 32px;
+}
+
+.page-btn:hover:not(:disabled) { background: var(--color-paper-3); color: var(--color-ink); }
+.page-btn:active:not(:disabled) { background: var(--color-paper-2); }
+.page-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.page-btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+.page-info {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-neutral);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 /* ---------- Listado (filas de catálogo) ---------- */
 
-.results { padding-block: var(--space-md) var(--space-lg); }
+.results {
+  padding-block: var(--space-md) var(--space-lg);
+  scroll-margin-top: 88px;
+}
 
 .row {
   padding-block: var(--space-lg);
@@ -495,6 +537,7 @@ a:hover { text-decoration: underline; }
   .chip { min-height: 40px; }
   .clear-btn { min-height: 44px; }
   .copy { min-height: 40px; }
+  .page-btn { min-height: 40px; }
 }
 
 @media (pointer: coarse) {
