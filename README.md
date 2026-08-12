@@ -1,6 +1,6 @@
 # web-codingbat-solutions
 
-## 📌 Descripción
+## Descripción
 Este proyecto forma parte de mi portafolio personal.
 El objetivo es demostrar buenas prácticas de programación, organización y documentación en GitHub.
 
@@ -8,7 +8,7 @@ Contiene soluciones a ejercicios de [CodingBat](https://codingbat.com/) en **Jav
 y una **web estática** (HTML, CSS y JavaScript, sin dependencias) que las muestra con su
 enunciado, ejemplos y código.
 
-## 🗂️ Estructura
+## Estructura
 
 ```
 ├── index.html              # Página principal de la web
@@ -24,7 +24,7 @@ enunciado, ejemplos y código.
 └── coding-bat-python/      # Soluciones en Python
 ```
 
-## 🌐 Web
+## Web
 
 Diseñada con la skill **Hallmark** (macrostructure Portfolio Grid · theme Cobalt: papel frío,
 acento azul eléctrico, Space Grotesk + Inter + JetBrains Mono). La web muestra los 222 ejercicios
@@ -60,6 +60,6 @@ node --check js/app.js
 node tools/smoke-test.js
 ```
 
-## 📜 Licencia
+## Licencia
 Este proyecto está bajo la licencia **MIT**.
 Consulta el archivo [LICENSE](LICENSE) para más detalles.
