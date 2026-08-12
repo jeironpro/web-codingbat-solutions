@@ -1,9 +1,6 @@
 # web-codingbat-solutions
 
 ## Descripción
-Este proyecto forma parte de mi portafolio personal.
-El objetivo es demostrar buenas prácticas de programación, organización y documentación en GitHub.
-
 Contiene **mis soluciones** a ejercicios de [CodingBat](https://codingbat.com/) en **Java** y **Python**,
 y una **web estática** (HTML, CSS y JavaScript, sin dependencias) que las muestra con su
 enunciado, ejemplos y código.
