@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodingBat Soluciones · Java y Python</title>
+  <meta name="description" content="Ejercicios de CodingBat resueltos en Java y Python: enunciados, ejemplos y soluciones de cada problema.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-logo">⚡</span>
+        <span class="brand-name">CodingBat <strong>Soluciones</strong></span>
+      </a>
+      <nav class="nav">
+        <button class="nav-link" data-lang="java" type="button">Java</button>
+        <button class="nav-link" data-lang="python" type="button">Python</button>
+        <a href="#buscar">Buscar</a>
+        <a href="https://codingbat.com/" target="_blank" rel="noopener">CodingBat ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Ejercicios de CodingBat con sus <span class="accent">soluciones</span></h1>
+      <p class="lead">
+        Colección de ejercicios resueltos de
+        <a href="https://codingbat.com/" target="_blank" rel="noopener">CodingBat</a>
+        en <strong>Java</strong> y <strong>Python</strong>. Cada problema incluye su enunciado,
+        los ejemplos de entrada/salida y el código de la solución.
+      </p>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="toolbar" id="buscar">
+      <input id="search" type="search" placeholder="Buscar por nombre, enunciado o código…" autocomplete="off" spellcheck="false">
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-label">Lenguaje</span>
+          <div class="chips" id="lang-chips"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Categoría</span>
+          <div class="chips" id="cat-chips"></div>
+        </div>
+      </div>
+      <p class="count" id="count"></p>
+    </section>
+
+    <section id="results" class="results"></section>
+    <p id="empty" class="empty" hidden>No se encontraron ejercicios con esos filtros. Prueba con otra búsqueda.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Soluciones de <a href="https://codingbat.com/" target="_blank" rel="noopener">CodingBat</a> ·
+        Java y Python · Proyecto de portafolio · <a href="LICENSE">MIT</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
