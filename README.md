@@ -13,7 +13,7 @@ enunciado, ejemplos y código.
 ```
 ├── index.html              # Página principal de la web
 ├── icons/favicon.svg       # Favicon del sitio
-├── css/style.css           # Estilos (sistema Hallmark · tema Terminal, responsive)
+├── css/style.css           # Estilos (sistema Hallmark · tema claro con acento óxido, responsive)
 ├── js/app.js               # Renderizado, búsqueda, filtros y resaltado de sintaxis
 ├── js/data.js              # Datos de los ejercicios (generado, no editar a mano)
 ├── tools/

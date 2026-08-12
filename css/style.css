@@ -1,34 +1,34 @@
 /* ============================================================
-   Hallmark · macrostructure: Catalogue · theme: Terminal (custom)
+   Hallmark · macrostructure: Catalogue · theme: custom claro (acento óxido)
    genre: technical · nav: N8 terminal-command · footer: Ft4 dense-colophon
-   enrichment: none (typography only) · motion: 0× (terminal, solo caret blink)
-   knobs: hero inventory-header (izquierda), rows 1-col (desviación de Catalogue:
-   enunciado + código largos), chips mono, token colors por lenguaje
+   enrichment: none (typography only) · motion: cut (preservado del tema anterior)
+   override: el usuario pidió mantener la estructura (Catalogue + N8 + Ft4)
+   knobs: hero inventory-header (izquierda), rows 1-col, chips mono
    Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V5
    slop test: 58/58 · contrast: pass (40–41) · nav: N8 · footer: Ft4
    slop: pass (42–45) · honest: pass (46) · chrome: pass (47) · tokens: pass (48)
    responsive: pass (49) · mobile: pass (34, 49, 50–57)
    ============================================================ */
 
-/* ---------- Tokens · Terminal ---------- */
+/* ---------- Tokens · tema claro (acento óxido) ---------- */
 
 :root {
-  --color-paper:      oklch(14% 0.008 145);
-  --color-paper-2:    oklch(17% 0.010 145);
-  --color-paper-3:    oklch(20% 0.010 145);
-  --color-rule:       oklch(26% 0.010 145);
-  --color-neutral:    oklch(55% 0.008 145);
-  --color-muted:      oklch(70% 0.006 145);
-  --color-ink:        oklch(92% 0.010 145);
-  --color-accent:     oklch(80% 0.17 145);
-  --color-accent-dim: oklch(58% 0.10 145);
-  --color-focus:      oklch(76% 0.19 150);
+  --color-paper:      oklch(97% 0.008 45);
+  --color-paper-2:    oklch(95% 0.010 45);
+  --color-paper-3:    oklch(92% 0.012 45);
+  --color-rule:       oklch(87% 0.014 45);
+  --color-neutral:    oklch(38% 0.016 40);
+  --color-muted:      oklch(45% 0.014 40);
+  --color-ink:        oklch(22% 0.012 40);
+  --color-accent:     oklch(60% 0.17 45);
+  --color-accent-ink: oklch(44% 0.15 45);
+  --color-focus:      oklch(48% 0.16 45);
 
-  --tok-comment:  oklch(62% 0.03 145);
-  --tok-string:   oklch(80% 0.11 80);
-  --tok-keyword:  var(--color-accent);
-  --tok-number:   oklch(78% 0.09 210);
-  --tok-function: oklch(84% 0.07 120);
+  --tok-comment:  oklch(50% 0.04 145);
+  --tok-string:   oklch(45% 0.11 60);
+  --tok-keyword:  var(--color-accent-ink);
+  --tok-number:   oklch(42% 0.10 240);
+  --tok-function: oklch(48% 0.12 300);
 
   --font-display: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -84,7 +84,7 @@ body {
 a { color: var(--color-accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-::selection { background: var(--color-accent); color: var(--color-paper); }
+::selection { background: var(--color-accent-ink); color: var(--color-paper); }
 
 /* ---------- N8 · Línea de terminal (nav) ---------- */
 
@@ -108,7 +108,7 @@ a:hover { text-decoration: underline; }
 
 .nav-term__line::before {
   content: ">";
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   font-weight: 700;
   padding-right: 0.2ch;
 }
@@ -118,7 +118,7 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
 }
 
-.nav-term__brand .accent { color: var(--color-accent); }
+.nav-term__brand .accent { color: var(--color-accent-ink); }
 
 .nav-flag {
   font-family: var(--font-display);
@@ -132,13 +132,13 @@ a:hover { text-decoration: underline; }
 }
 
 .nav-flag:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: 3px; }
-.nav-flag:active { color: var(--color-accent); }
+.nav-flag:active { color: var(--color-accent-ink); }
 .nav-flag:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
 
 .caret {
   display: inline-block;
   width: 1ch;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   animation: blink 1.05s steps(2) infinite;
 }
 
@@ -166,7 +166,7 @@ a:hover { text-decoration: underline; }
   min-width: 0;
 }
 
-.hero-title .accent { color: var(--color-accent); }
+.hero-title .accent { color: var(--color-accent-ink); }
 
 .hero-lead {
   margin: 0 0 var(--space-md);
@@ -202,7 +202,7 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-display);
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   white-space: nowrap;
 }
 
@@ -216,7 +216,7 @@ a:hover { text-decoration: underline; }
   border: none;
   outline: none;
   padding: 0;
-  caret-color: var(--color-accent);
+  caret-color: var(--color-accent-ink);
 }
 
 #search::placeholder { color: var(--color-neutral); }
@@ -265,7 +265,7 @@ a:hover { text-decoration: underline; }
 .chip:active { background: var(--color-paper-2); }
 
 .chip.active {
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   border-color: var(--color-accent);
   background: var(--color-paper-2);
   font-weight: 500;
@@ -403,7 +403,7 @@ a:hover { text-decoration: underline; }
 }
 
 .examples li:last-child { border-bottom: none; }
-.examples li .arrow { color: var(--color-accent); }
+.examples li .arrow { color: var(--color-accent-ink); }
 
 /* ---------- Código (frame tipográfico, sin chrome falso) ---------- */
 
@@ -448,7 +448,7 @@ a:hover { text-decoration: underline; }
 .copy:hover { color: var(--color-ink); border-color: var(--color-neutral); }
 .copy:active { background: var(--color-paper-3); }
 .copy:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
-.copy.is-copied { color: var(--color-accent); border-color: var(--color-accent); }
+.copy.is-copied { color: var(--color-accent-ink); border-color: var(--color-accent); }
 
 .code pre {
   margin: 0;
@@ -461,7 +461,7 @@ a:hover { text-decoration: underline; }
 
 .code code { font-family: inherit; }
 
-/* Resaltado de sintaxis · paleta terminal */
+/* Resaltado de sintaxis · paleta clara */
 .tok.c { color: var(--tok-comment); font-style: italic; }
 .tok.s { color: var(--tok-string); }
 .tok.k { color: var(--tok-keyword); }
@@ -491,7 +491,7 @@ a:hover { text-decoration: underline; }
 .clear-btn {
   font-family: var(--font-display);
   font-size: var(--text-sm);
-  color: var(--color-accent);
+  color: var(--color-accent-ink);
   background: transparent;
   border: var(--rule-hair) solid var(--color-accent);
   border-radius: 999px;

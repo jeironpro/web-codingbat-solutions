@@ -8,5 +8,15 @@
     "nav": "N8 terminal-command",
     "footer": "Ft4 dense-colophon",
     "motion": "0x (terminal)"
+  },
+  {
+    "date": "2026-08-12",
+    "macrostructure": "Catalogue",
+    "theme": "custom claro (acento oxido)",
+    "enrichment": "none",
+    "brief": "web-codingbat-solutions - tema claro con acento propio; el usuario pidio mantener la estructura (override del catalogo)",
+    "nav": "N8 terminal-command",
+    "footer": "Ft4 dense-colophon",
+    "motion": "cut (preservado)"
   }
 ]
