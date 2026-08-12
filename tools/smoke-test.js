@@ -1,8 +1,9 @@
 /*
  * Smoke test de la web (sin navegador).
  * Comprueba que js/data.js contiene los ejercicios y que js/app.js
- * renderiza estadísticas, chips, paginación, copiado y estado vacío
- * sin errores, usando un stub mínimo del DOM.
+ * renderiza estadísticas, chips, rejilla de tarjetas, "ver solución",
+ * paleta ⌘K, paginación, copiado y estado vacío sin errores,
+ * usando un stub mínimo del DOM.
  *
  * Uso: node tools/smoke-test.js
  */
@@ -12,15 +13,32 @@
 const fs = require('fs');
 const path = require('path');
 
+function classListFor(el) {
+  const set = new Set();
+  return {
+    add: c => set.add(c),
+    remove: c => set.delete(c),
+    toggle: (c, force) => {
+      const on = force === undefined ? !set.has(c) : force;
+      if (on) set.add(c); else set.delete(c);
+      return on;
+    },
+    contains: c => set.has(c),
+  };
+}
+
 class El {
   constructor(tag) {
     this.tagName = tag;
     this.children = [];
     this.listeners = {};
     this.dataset = {};
+    this.attrs = {};
     this.hidden = false;
     this.textContent = '';
     this.value = '';
+    this.style = {};
+    this.classList = classListFor(this);
     this._innerHTML = '';
   }
   set innerHTML(v) { this._innerHTML = v; this.children = []; }
@@ -28,7 +46,12 @@ class El {
   addEventListener(type, fn) { (this.listeners[type] ||= []).push(fn); }
   appendChild(child) { this.children.push(child); }
   querySelectorAll() { return []; }
+  querySelector() { return null; }
   scrollIntoView() {}
+  setAttribute(k, v) { this.attrs[k] = v; }
+  focus() {}
+  remove() {}
+  before() {}
 }
 
 const failures = [];
@@ -44,15 +67,20 @@ function fakeClick(el, listenersKey, selector, node) {
 async function main() {
   let copied = null;
   const elements = {};
+  const keyHandlers = [];
   Object.defineProperty(global, 'window', { value: {}, configurable: true, writable: true });
   Object.defineProperty(global, 'navigator', {
     value: { clipboard: { writeText: async t => { copied = t; } } },
     configurable: true, writable: true,
   });
+  global.setTimeout = fn => fn(); // type-in, debounce y reverts corren síncronos
   global.document = {
     getElementById: id => (elements[id] ||= new El('div')),
     querySelectorAll: () => [],
     createElement: tag => new El(tag),
+    createTextNode: text => ({ nodeType: 3, textContent: text }),
+    addEventListener: (type, fn) => { if (type === 'keydown') keyHandlers.push(fn); },
+    activeElement: null,
     body: new El('body'),
     execCommand: () => true,
   };
@@ -69,21 +97,23 @@ async function main() {
 
   console.log('Smoke test');
   check('se cargaron los ejercicios (222)', data.length === 222);
-  check('las estadísticas del hero muestran el total', elements['stats'].textContent.includes('222'));
+  check('la banda de stats muestra cifras reales', elements['stats'].innerHTML.includes('222'));
   check('los chips de lenguaje se renderizan', elements['lang-chips'].children.map(c => c.textContent).join(',') === 'todos,java,python');
   check('los chips de categoría se renderizan',
     elements['cat-chips'].children.some(c => c.textContent === 'todas') &&
     elements['cat-chips'].children.some(c => c.textContent === 'cadenas') &&
     elements['cat-chips'].children.some(c => c.textContent === 'lógica'));
   check('el contador muestra el total', countText().includes('222 ejercicios'));
+  check('el código del hero se resalta', elements['hero-code-out'].innerHTML.includes('class="tok '));
 
   /* Paginación inicial */
-  const firstPageRows = (resultsHtml().match(/<article/g) || []).length;
-  check('la página 1 muestra 10 ejercicios', firstPageRows === 10);
+  const firstPageCards = (resultsHtml().match(/<article/g) || []).length;
+  check('la página 1 muestra 10 tarjetas', firstPageCards === 10);
   check('la paginación muestra página 1 de 23', paginationHtml().includes('página 1 de 23'));
   check('el botón anterior está deshabilitado en la página 1', paginationHtml().includes('data-page="prev" disabled'));
-  check('los resultados contienen el primer ejercicio', resultsHtml().includes(data[0].name + '()'));
-  check('los resultados incluyen el código resaltado', resultsHtml().includes('class="tok '));
+  check('la primera tarjeta contiene el ejercicio correcto', resultsHtml().includes(data[0].name + '()'));
+  check('las tarjetas incluyen el botón ver solución', resultsHtml().includes('Ver solución'));
+  check('las tarjetas incluyen el código resaltado', resultsHtml().includes('class="tok '));
   check('cada ejercicio tiene lenguaje válido', data.every(e => ['java', 'python'].includes(e.lang)));
   check('cada ejercicio tiene categoría y nivel', data.every(e => e.category && e.level));
 
@@ -98,13 +128,28 @@ async function main() {
   const firstPythonIdx = data.findIndex(e => e.lang === 'python');
   const firstCopyIdx = Number(resultsHtml().match(/data-idx="(\d+)"/)[1]);
   check('el filtro python reinicia a la página 1', paginationHtml().includes('página 1 de 8'));
-  check('el primer ejercicio python tiene el índice correcto', firstCopyIdx === firstPythonIdx);
+  check('la primera tarjeta python tiene el índice correcto', firstCopyIdx === firstPythonIdx);
   await resultsElClickCopy(firstPythonIdx);
   check('copiar guarda el código del ejercicio correcto', copied === data[firstPythonIdx].code);
 
+  /* Ver solución: alterna la visibilidad */
+  const solEl = new El('div');
+  solEl.hidden = true;
+  const fakeCard = { classList: classListFor({}), querySelector: sel => (sel === '.card__solution' ? solEl : null) };
+  const viewBtn = {
+    dataset: {}, textContent: '', attrs: {}, classList: classListFor({}),
+    setAttribute: function (k, v) { this.attrs[k] = v; },
+    closest: sel => (sel === '.card' ? fakeCard : null),
+  };
+  await elements['results'].listeners['click'][0]({
+    target: {
+      closest: sel => (sel === '.copy' ? null : sel === '.card__view' ? viewBtn : sel === '.card' ? fakeCard : null),
+    },
+  });
+  check('ver solución abre el panel de código', solEl.hidden === false);
+
   /* Búsqueda: filtra y reinicia la página (con el filtro de lenguaje en 'todos') */
   fakeClick(elements['lang-chips'], 'click', '.chip', elements['lang-chips'].children[0]); // chip todos
-  global.setTimeout = fn => fn();
   const searchEl = elements['search'];
   searchEl.value = 'fizz';
   searchEl.listeners['input'][0]();
@@ -124,6 +169,19 @@ async function main() {
     elements['empty'].hidden === true &&
     searchEl.value === '' &&
     paginationHtml().includes('página 1 de 23'));
+
+  /* Paleta ⌘K: abre con atajo, filtra y abre el ejercicio */
+  keyHandlers[0]({ metaKey: true, key: 'k', preventDefault() {} });
+  check('⌘K abre la paleta de comandos', elements['cmdk'].classList.contains('is-open'));
+  const cmdkInput = elements['cmdk-input'];
+  cmdkInput.value = 'diferencia21';
+  cmdkInput.listeners['input'][0]();
+  check('la paleta filtra por nombre', elements['cmdk-results'].innerHTML.includes('diferencia21'));
+  keyHandlers[0]({ key: 'Enter', preventDefault() {} });
+  check('enter en la paleta abre el ejercicio y cierra', 
+    resultsHtml().includes('diferencia21()') &&
+    elements['cmdk'].classList.contains('is-open') === false);
+  check('la paleta se restableció a todos los ejercicios', countText().includes('222 ejercicios'));
 
   async function resultsElClickCopy(idx) {
     await elements['results'].listeners['click'][0]({
