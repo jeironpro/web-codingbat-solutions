@@ -460,6 +460,15 @@ button:disabled,
     flex-wrap: wrap;
 }
 
+.hero__note {
+    margin: var(--space-lg) 0 0;
+    max-width: 56ch;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    line-height: 1.6;
+    color: var(--color-muted);
+}
+
 .link-arrow {
     font-family: var(--font-mono);
     font-size: var(--text-sm);
