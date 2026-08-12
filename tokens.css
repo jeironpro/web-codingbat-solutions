@@ -1,0 +1,95 @@
+/* ============================================================
+   Hallmark · theme: Cobalt — bloque de tokens
+   papel frío oklch(98.5% 0.004 250) · acento azul eléctrico
+   oklch(58% 0.20 256) · display grotesk-sans (Space Grotesk)
+   ============================================================ */
+
+:root {
+  /* Papel frío e ingeniería — nunca #fff ni #000 */
+  --color-paper:      oklch(98.5% 0.004 250);
+  --color-paper-2:    oklch(96.5% 0.006 252);
+  --color-paper-3:    oklch(93.5% 0.008 254);
+  --color-rule:       oklch(90% 0.010 255);
+  --color-rule-2:     oklch(82% 0.015 256);
+
+  /* Tinta fría */
+  --color-ink:        oklch(24% 0.020 258);
+  --color-ink-2:      oklch(34% 0.018 257);
+  --color-muted:      oklch(45% 0.016 256);
+  --color-neutral:    oklch(55% 0.014 254);
+
+  /* Única señal: azul eléctrico. Texto usa variante más oscura (contraste ≥ 4.5:1) */
+  --color-accent:       oklch(58% 0.200 256);
+  --color-accent-hover: oklch(53% 0.190 256);
+  --color-accent-ink:   oklch(47% 0.175 256);
+  --color-accent-soft:  oklch(96% 0.020 256);
+  --color-focus:        oklch(50% 0.180 256);
+  --nav-bg:             oklch(98.5% 0.004 250 / 0.85);
+
+  /* Banda grafito (el único latido oscuro) */
+  --color-graphite:    oklch(22% 0.016 260);
+  --color-graphite-2:  oklch(28% 0.018 258);
+  --color-rule-dark:   oklch(36% 0.020 258);
+  --color-ink-light:   oklch(92% 0.010 250);
+  --color-muted-dark:  oklch(70% 0.020 252);
+
+  /* Resaltado de sintaxis · claro */
+  --tok-comment:  oklch(52% 0.015 256);
+  --tok-string:   oklch(44% 0.085 208);
+  --tok-keyword:  var(--color-accent-ink);
+  --tok-number:   oklch(44% 0.100 300);
+  --tok-function: var(--color-accent-ink);
+
+  /* Resaltado de sintaxis · grafito (hero) */
+  --tokd-key:     var(--color-accent);
+  --tokd-string:  oklch(86% 0.030 230);
+  --tokd-number:  oklch(82% 0.090 300);
+  --tokd-function: var(--color-accent);
+  --tokd-comment: oklch(66% 0.020 252);
+  --tokd-punct:   oklch(72% 0.020 254);
+
+  /* Tipografía — 2+1 (Space Grotesk + Inter + JetBrains Mono) */
+  --font-display: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Escala tipográfica 1.25 (tercera mayor) */
+  --text-xs:   0.75rem;
+  --text-sm:   0.8125rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.5625rem;
+  --text-xl:   1.9531rem;
+  --text-2xl:  2.4414rem;
+  --text-display: clamp(2.2rem, 4.5vw + 0.6rem, 3.4rem);
+
+  /* Espaciado 4pt por rol */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Radios — regla y compás: 6px controles, 10px code cards */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* Motion — compuesta y escasa */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:  cubic-bezier(0.4, 0, 1, 1);
+  --dur-short: 150ms;
+  --dur-med:   240ms;
+  --dur-long:  600ms;
+
+  --scrim:       oklch(18% 0.020 258 / 0.4);
+  --shadow-card: 0 1px 2px oklch(24% 0.020 258 / 0.05);
+  --shadow-cmdk: 0 24px 48px -12px oklch(18% 0.020 258 / 0.25);
+
+  --rule-hair: 1px;
+  --z-sticky: 200;
+  --z-cmdk: 700;
+}

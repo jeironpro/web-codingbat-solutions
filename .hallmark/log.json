@@ -1,6 +1,16 @@
 [
   {
     "date": "2026-08-12",
+    "macrostructure": "Portfolio Grid",
+    "theme": "Cobalt",
+    "enrichment": "none (code-as-hero)",
+    "brief": "web-codingbat-solutions - rediseno completo con tema Cobalt: hero con codigo, banda de stats, tarjetas con ver solucion y paleta CmdK",
+    "nav": "N13 inline-CmdK-pill",
+    "footer": "Ft2 inline-rule",
+    "motion": "composed (reveal + type-in una vez)"
+  },
+  {
+    "date": "2026-08-12",
     "macrostructure": "Catalogue",
     "theme": "Terminal",
     "enrichment": "none",
