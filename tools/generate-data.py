@@ -46,6 +46,107 @@ def clean_comment(text):
     return "\n".join(lines)
 
 
+def _brace_delta(line, state):
+    """Cambio neto de llaves en una línea, ignorando strings, caracteres y comentarios.
+    `state` persiste entre líneas (comentarios de bloque multilínea)."""
+    delta = 0
+    i, n = 0, len(line)
+    while i < n:
+        c = line[i]
+        nxt = line[i + 1] if i + 1 < n else ""
+        if state["line_comment"]:
+            break
+        if state["block_comment"]:
+            if c == "*" and nxt == "/":
+                state["block_comment"] = False
+                i += 2
+            else:
+                i += 1
+            continue
+        if state["in_str"]:
+            if c == "\\":
+                i += 2
+            elif c == '"':
+                state["in_str"] = False
+                i += 1
+            else:
+                i += 1
+            continue
+        if state["in_char"]:
+            if c == "\\":
+                i += 2
+            elif c == "'":
+                state["in_char"] = False
+                i += 1
+            else:
+                i += 1
+            continue
+        if c == "/" and nxt == "/":
+            state["line_comment"] = True
+            break
+        if c == "/" and nxt == "*":
+            state["block_comment"] = True
+            i += 2
+            continue
+        if c == '"':
+            state["in_str"] = True
+            i += 1
+            continue
+        if c == "'":
+            state["in_char"] = True
+            i += 1
+            continue
+        if c == "{":
+            delta += 1
+        elif c == "}":
+            delta -= 1
+        i += 1
+    return delta
+
+
+def normalize_java(code):
+    """Re-indenta el cuerpo del método por profundidad de llaves (4 espacios)."""
+    state = {"in_str": False, "in_char": False, "line_comment": False, "block_comment": False}
+    out = []
+    depth = 0
+    for raw in code.replace("\t", "    ").split("\n"):
+        line = raw.rstrip()
+        stripped = line.strip()
+        if not stripped:
+            if out and out[-1] != "":
+                out.append("")
+            continue
+        level = max(0, depth - 1) if stripped.startswith("}") else depth
+        out.append("    " * level + stripped)
+        depth = max(0, depth + _brace_delta(line, state))
+        state["line_comment"] = False
+    return "\n".join(out)
+
+
+def normalize_python(code):
+    """Limpia indentación de Python: tabs a espacios, sin espacios finales,
+    sin líneas en blanco repetidas y cuerpo re-basado a 4 espacios si está
+    desplazado de forma uniforme."""
+    lines = code.replace("\t", "    ").split("\n")
+    body = [ln.rstrip() for ln in lines]
+    indents = [len(ln) - len(ln.lstrip()) for ln in body[1:] if ln.strip()]
+    if indents:
+        shift = min(indents) - 4
+        if shift:
+            body = [body[0]] + [
+                (" " * max(0, (len(ln) - len(ln.lstrip())) - shift) + ln.lstrip()) if ln.strip() else ""
+                for ln in body[1:]
+            ]
+    out = []
+    for ln in body:
+        if not ln.strip():
+            if out and out[-1] != "":
+                out.append("")
+            continue
+        out.append(ln)
+    return "\n".join(out)
+
+
 def split_examples(comment, lang):
     """Separa el enunciado de las líneas de ejemplos (contienen '→')."""
     examples = []
@@ -127,7 +228,7 @@ def parse_java(path):
         close = brace_match(text, brace)
         if close == -1:
             continue
-        code = text[m.start():close + 1].strip()
+        code = normalize_java(text[m.start():close + 1].strip())
         cm = nearest_comment(text, m.start())
         statement, examples = "", []
         if cm:
@@ -183,7 +284,7 @@ def parse_python(path):
             between = text[candidate.end():df.start()]
             if all(ln.strip() == "" or ln.strip().startswith("#") for ln in between.split("\n")):
                 statement, examples = split_examples(clean_comment(candidate.group(1)), "python")
-        code = extract_py_body(text, df.start())
+        code = normalize_python(extract_py_body(text, df.start()))
         exercises.append({
             "name": name,
             "lang": "python",
