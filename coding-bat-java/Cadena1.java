@@ -22,7 +22,7 @@ public class Cadena1 {
     hacerCadenaSalida("[[]]", "word") → "[[word]]"
     */
 
-    public String makeOutWord(String salida, String palabra) {
+    public String hacerCadenaSalida(String salida, String palabra) {
         return salida.substring(0, 2) + palabra + salida.substring(2, salida.length());
     }
 

@@ -1,12 +1,14 @@
 /* ============================================================
    CodingBat Soluciones — lógica del frontend
-   Renderizado de ejercicios, búsqueda, filtros, copiado y
-   resaltado de sintaxis. Sin dependencias externas.
+   Renderizado de ejercicios, búsqueda, filtros, paginación,
+   copiado y resaltado de sintaxis. Sin dependencias externas.
    ============================================================ */
 
 'use strict';
 
 const EXERCISES = window.EXERCISES || [];
+const PAGE_SIZE = 10;
+
 const resultsEl = document.getElementById('results');
 const emptyEl = document.getElementById('empty');
 const countEl = document.getElementById('count');
@@ -15,8 +17,9 @@ const searchEl = document.getElementById('search');
 const clearEl = document.getElementById('clear');
 const langChipsEl = document.getElementById('lang-chips');
 const catChipsEl = document.getElementById('cat-chips');
+const paginationEls = [document.getElementById('pagination-top'), document.getElementById('pagination-bottom')].filter(Boolean);
 
-const state = { q: '', lang: 'all', cat: 'all' };
+const state = { q: '', lang: 'all', cat: 'all', page: 1 };
 
 /* ---------- Utilidades ---------- */
 
@@ -122,9 +125,21 @@ function rowHtml(ex, idx) {
   );
 }
 
+function renderPagination(total) {
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const html =
+    '<button class="page-btn" type="button" data-page="prev"' + (state.page <= 1 ? ' disabled' : '') + '>‹ anterior</button>' +
+    '<span class="page-info">página ' + state.page + ' de ' + totalPages + '</span>' +
+    '<button class="page-btn" type="button" data-page="next"' + (state.page >= totalPages ? ' disabled' : '') + '>siguiente ›</button>';
+  paginationEls.forEach(el => {
+    el.innerHTML = html;
+    el.hidden = totalPages < 2;
+  });
+}
+
 function render() {
   const q = state.q.trim().toLowerCase();
-  const list = EXERCISES.filter(ex =>
+  const filtered = EXERCISES.filter(ex =>
     (state.lang === 'all' || ex.lang === state.lang) &&
     (state.cat === 'all' || ex.category === state.cat) &&
     (!q ||
@@ -133,11 +148,19 @@ function render() {
       ex.code.toLowerCase().includes(q))
   );
 
-  resultsEl.innerHTML = list.map((ex, i) => rowHtml(ex, i)).join('');
-  emptyEl.hidden = list.length > 0;
-  countEl.textContent = list.length === EXERCISES.length
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  if (state.page > totalPages) state.page = totalPages;
+  if (state.page < 1) state.page = 1;
+
+  const start = (state.page - 1) * PAGE_SIZE;
+  const pageItems = filtered.slice(start, start + PAGE_SIZE);
+
+  resultsEl.innerHTML = pageItems.map(ex => rowHtml(ex, EXERCISES.indexOf(ex))).join('');
+  emptyEl.hidden = filtered.length > 0;
+  countEl.textContent = filtered.length === EXERCISES.length
     ? EXERCISES.length + ' ejercicios'
-    : list.length + ' de ' + EXERCISES.length + ' ejercicios';
+    : filtered.length + ' de ' + EXERCISES.length + ' ejercicios';
+  renderPagination(filtered.length);
 }
 
 /* ---------- Filtros (chips) ---------- */
@@ -171,6 +194,7 @@ langChipsEl.addEventListener('click', e => {
   const chip = e.target.closest('.chip');
   if (!chip) return;
   state.lang = chip.dataset.value;
+  state.page = 1;
   renderChips();
   render();
 });
@@ -179,6 +203,7 @@ catChipsEl.addEventListener('click', e => {
   const chip = e.target.closest('.chip');
   if (!chip) return;
   state.cat = chip.dataset.value;
+  state.page = 1;
   renderChips();
   render();
 });
@@ -190,6 +215,7 @@ searchEl.addEventListener('input', () => {
   clearTimeout(debounce);
   debounce = setTimeout(() => {
     state.q = searchEl.value;
+    state.page = 1;
     render();
   }, 250);
 });
@@ -200,10 +226,24 @@ clearEl.addEventListener('click', () => {
   state.q = '';
   state.lang = 'all';
   state.cat = 'all';
+  state.page = 1;
   searchEl.value = '';
   renderChips();
   render();
 });
+
+/* ---------- Paginación ---------- */
+
+function onPageClick(e) {
+  const btn = e.target.closest('.page-btn');
+  if (!btn || btn.disabled) return;
+  state.page += btn.dataset.page === 'next' ? 1 : -1;
+  render();
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  resultsEl.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
+}
+
+paginationEls.forEach(el => el.addEventListener('click', onPageClick));
 
 /* ---------- Nav N8 (flags) ---------- */
 
@@ -211,6 +251,7 @@ document.querySelectorAll('.nav-flag[data-lang]').forEach(btn => {
   btn.addEventListener('click', () => {
     state.lang = btn.dataset.lang;
     state.q = '';
+    state.page = 1;
     searchEl.value = '';
     renderChips();
     render();
