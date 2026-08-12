@@ -17,7 +17,7 @@ window.EXERCISES = [
       "holaNombre(\"Alice\") → \"Hello Alice!\"",
       "holaNombre(\"X\") → \"Hello X!\""
     ],
-    "code": "public String HolaNombre(String nombre) {\n        return \"Hola \" + nombre + \"!\";\n    }"
+    "code": "public String HolaNombre(String nombre) {\n    return \"Hola \" + nombre + \"!\";\n}"
   },
   {
     "name": "hacerCadenaSalida",
@@ -31,7 +31,7 @@ window.EXERCISES = [
       "hacerCadenaSalida(\"<<>>\", \"WooHoo\") → \"<<WooHoo>>\"",
       "hacerCadenaSalida(\"[[]]\", \"word\") → \"[[word]]\""
     ],
-    "code": "public String hacerCadenaSalida(String salida, String palabra) {\n        return salida.substring(0, 2) + palabra + salida.substring(2, salida.length());\n    }"
+    "code": "public String hacerCadenaSalida(String salida, String palabra) {\n    return salida.substring(0, 2) + palabra + salida.substring(2, salida.length());\n}"
   },
   {
     "name": "primeraMitad",
@@ -45,7 +45,7 @@ window.EXERCISES = [
       "primeraMitad(\"HelloThere\") → \"Hello\"",
       "primeraMitad(\"abcdef\") → \"abc\""
     ],
-    "code": "public String primeraMitad(String cadena) {\n        return cadena.substring(0, cadena.length()/2);\n    }"
+    "code": "public String primeraMitad(String cadena) {\n    return cadena.substring(0, cadena.length()/2);\n}"
   },
   {
     "name": "sinPrimerCaracter",
@@ -59,7 +59,7 @@ window.EXERCISES = [
       "sinPrimerCaracter(\"java\", \"code\") → \"avaode\"",
       "sinPrimerCaracter(\"shotl\", \"java\") → \"hotlava\""
     ],
-    "code": "public String sinPrimerCaracter(String a, String b) {\n        return a.substring(1) + b.substring(1);\n    }"
+    "code": "public String sinPrimerCaracter(String a, String b) {\n    return a.substring(1) + b.substring(1);\n}"
   },
   {
     "name": "ultimoCaracter",
@@ -73,7 +73,7 @@ window.EXERCISES = [
       "ultimoCaracter(\"Hello\", false) → \"o\"",
       "ultimoCaracter(\"oh\", true) → \"o\""
     ],
-    "code": "public String ultimoCaracter(String cadena, boolean frente) {\n        if (frente) {\n            return cadena.substring(0, 1);\n        } else {\n            return cadena.substring(cadena.length()-1);\n        }\n    }"
+    "code": "public String ultimoCaracter(String cadena, boolean frente) {\n    if (frente) {\n        return cadena.substring(0, 1);\n    } else {\n        return cadena.substring(cadena.length()-1);\n    }\n}"
   },
   {
     "name": "finalLy",
@@ -87,7 +87,7 @@ window.EXERCISES = [
       "finalLy(\"y\") → false",
       "finalLy(\"oddy\") → false"
     ],
-    "code": "public boolean finalLy(String cadena) {\n        if (cadena.length() >= 2) {\n            String ly = cadena.substring(cadena.length()-2);\n\n            if (ly.equals(\"ly\")) return true;\n        }\n        return false;\n    }"
+    "code": "public boolean finalLy(String cadena) {\n    if (cadena.length() >= 2) {\n        String ly = cadena.substring(cadena.length()-2);\n\n        if (ly.equals(\"ly\")) return true;\n    }\n    return false;\n}"
   },
   {
     "name": "mitadTres",
@@ -101,7 +101,7 @@ window.EXERCISES = [
       "mitadTres(\"and\") → \"and\"",
       "mitadTres(\"solving\") → \"lvi\""
     ],
-    "code": "public String mitadTres(String cadena) {\n        int mitad = cadena.length()/2;\n        \n        return cadena.substring(mitad - 1, mitad) + cadena.substring(mitad, mitad + 2);\n    }"
+    "code": "public String mitadTres(String cadena) {\n    int mitad = cadena.length()/2;\n\n    return cadena.substring(mitad - 1, mitad) + cadena.substring(mitad, mitad + 2);\n}"
   },
   {
     "name": "ultimosCaracteres",
@@ -115,7 +115,7 @@ window.EXERCISES = [
       "ultimosCaracteres(\"yo\", \"java\") → \"ya\"",
       "ultimosCaracteres(\"hi\", \"\") → \"h@\""
     ],
-    "code": "public String ultimosCaracteres(String a, String b) {\n        if (a.isEmpty()) {\n            a = \"@\";\n        }\n\n        if (b.isEmpty()) {\n            b = \"@\";\n        }\n\n        return a.substring(0, 1) + b.substring(b.length()-1);\n    }"
+    "code": "public String ultimosCaracteres(String a, String b) {\n    if (a.isEmpty()) {\n        a = \"@\";\n    }\n\n    if (b.isEmpty()) {\n        b = \"@\";\n    }\n\n    return a.substring(0, 1) + b.substring(b.length()-1);\n}"
   },
   {
     "name": "color",
@@ -129,7 +129,7 @@ window.EXERCISES = [
       "color(\"xxred\") → \"\"",
       "color(\"blueTimes\") → \"blue\""
     ],
-    "code": "public String color(String cadena) {\n        if (cadena.startsWith(\"red\")) return \"red\";\n        if (cadena.startsWith(\"blue\")) return \"blue\";\n        return \"\";\n    }"
+    "code": "public String color(String cadena) {\n    if (cadena.startsWith(\"red\")) return \"red\";\n    if (cadena.startsWith(\"blue\")) return \"blue\";\n    return \"\";\n}"
   },
   {
     "name": "frente3",
@@ -143,7 +143,7 @@ window.EXERCISES = [
       "frente3(\"ab\") → \"ababab\"",
       "frente3(\"H\") → \"HHH\""
     ],
-    "code": "public String frente3(String cadena) {\n        if (cadena.length() >= 2) {\n            String primerosDos = cadena.substring(0, 2);\n\n            return primerosDos + primerosDos + primerosDos;\n        }\n        return cadena + cadena + cadena;\n    }"
+    "code": "public String frente3(String cadena) {\n    if (cadena.length() >= 2) {\n        String primerosDos = cadena.substring(0, 2);\n\n        return primerosDos + primerosDos + primerosDos;\n    }\n    return cadena + cadena + cadena;\n}"
   },
   {
     "name": "principioPalabra",
@@ -157,7 +157,7 @@ window.EXERCISES = [
       "principioPalabra(\"hippo\", \"xip\") → \"hip\"",
       "principioPalabra(\"hippo\", \"i\") → \"h\""
     ],
-    "code": "public String principioPalabra(String cadena, String palabra) {\n        if (cadena.length() >= palabra.length()) {\n            String principioCadena = cadena.substring(1, palabra.length());\n\n            String principioPalabra = palabra.substring(1, palabra.length());\n            if (principioCadena.equals(principioPalabra)) {\n                return principioCadena;\n            } else {\n                return \"\";\n            }\n        } else if (cadena.length() < palabra.length()) {\n            return \"\";\n        }\n        return cadena;\n    }"
+    "code": "public String principioPalabra(String cadena, String palabra) {\n    if (cadena.length() >= palabra.length()) {\n        String principioCadena = cadena.substring(1, palabra.length());\n\n        String principioPalabra = palabra.substring(1, palabra.length());\n        if (principioCadena.equals(principioPalabra)) {\n            return principioCadena;\n        } else {\n            return \"\";\n        }\n    } else if (cadena.length() < palabra.length()) {\n        return \"\";\n    }\n    return cadena;\n}"
   },
   {
     "name": "crearABBA",
@@ -171,7 +171,7 @@ window.EXERCISES = [
       "crearABBA(\"Yo\", \"Alice\") → \"YoAliceAliceYo\"",
       "crearABBA(\"What\", \"Up\") → \"WhatUpUpWhat\""
     ],
-    "code": "public String crearABBA(String a, String b) {\n        return a + b + b + a;\n    }"
+    "code": "public String crearABBA(String a, String b) {\n    return a + b + b + a;\n}"
   },
   {
     "name": "final3",
@@ -185,7 +185,7 @@ window.EXERCISES = [
       "final3(\"ab\") → \"ababab\"",
       "final3(\"Hi\") → \"HiHiHi\""
     ],
-    "code": "public String final3(String cadena) {\n        if (cadena.length() > 2) {\n            String ultimosDos = cadena.substring(cadena.length()-2);\n            return ultimosDos + ultimosDos + ultimosDos; \n        }\n        return cadena + cadena + cadena;\n    }"
+    "code": "public String final3(String cadena) {\n    if (cadena.length() > 2) {\n        String ultimosDos = cadena.substring(cadena.length()-2);\n        return ultimosDos + ultimosDos + ultimosDos;\n    }\n    return cadena + cadena + cadena;\n}"
   },
   {
     "name": "sinPrimerUltimo",
@@ -199,7 +199,7 @@ window.EXERCISES = [
       "sinPrimerUltimo(\"java\") → \"av\"",
       "sinPrimerUltimo(\"coding\") → \"odin\""
     ],
-    "code": "public String sinPrimerUltimo(String cadena) {\n        return cadena.substring(1, cadena.length()-1);\n    }"
+    "code": "public String sinPrimerUltimo(String cadena) {\n    return cadena.substring(1, cadena.length()-1);\n}"
   },
   {
     "name": "cambia2",
@@ -213,7 +213,7 @@ window.EXERCISES = [
       "cambia2(\"java\") → \"vaja\"",
       "cambia2(\"Hi\") → \"Hi\""
     ],
-    "code": "public String cambia2(String cadena) {\n        if (cadena.length() >= 2) {\n            return cadena.substring(2, cadena.length()) + cadena.substring(0, 2);\n        }\n        return cadena;\n    }"
+    "code": "public String cambia2(String cadena) {\n    if (cadena.length() >= 2) {\n        return cadena.substring(2, cadena.length()) + cadena.substring(0, 2);\n    }\n    return cadena;\n}"
   },
   {
     "name": "sinPrimerUltimo2",
@@ -227,7 +227,7 @@ window.EXERCISES = [
       "sinPrimerUltimo2(\"abc\") → \"b\"",
       "sinPrimerUltimo2(\"ab\") → \"\""
     ],
-    "code": "public String sinPrimerUltimo2(String cadena) {\n        if (cadena.length() <= 1) return \"\";\n\n        return cadena.substring(1, cadena.length()-1);\n    }"
+    "code": "public String sinPrimerUltimo2(String cadena) {\n    if (cadena.length() <= 1) return \"\";\n\n    return cadena.substring(1, cadena.length()-1);\n}"
   },
   {
     "name": "nVeces",
@@ -241,7 +241,7 @@ window.EXERCISES = [
       "nVeces(\"Chocolate\", 3) → \"Choate\"",
       "nVeces(\"Chocolate\", 1) → \"Ce\""
     ],
-    "code": "public String nVeces(String cadena, int n) {\n        String primeraN = cadena.substring(0, n);\n        String segundaN = cadena.substring(cadena.length()-n, cadena.length());\n\n        return primeraN + segundaN;\n    }"
+    "code": "public String nVeces(String cadena, int n) {\n    String primeraN = cadena.substring(0, n);\n    String segundaN = cadena.substring(cadena.length()-n, cadena.length());\n\n    return primeraN + segundaN;\n}"
   },
   {
     "name": "estaMal",
@@ -255,7 +255,7 @@ window.EXERCISES = [
       "estaMal(\"xbadxx\") → true",
       "estaMal(\"xxbadxx\") → false"
     ],
-    "code": "public boolean estaMal(String cadena) {\n        if (cadena.length() >= 3) {\n            String bad0 = cadena.substring(0, 3);\n            \n            if (bad0.equals(\"bad\")) {\n                return true;\n            }\n\n            if (cadena.length() >= 4) {\n                String bad1 = cadena.substring(1, 4);\n    \n                if (bad1.equals(\"bad\")) {\n                    return true;\n                }\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean estaMal(String cadena) {\n    if (cadena.length() >= 3) {\n        String bad0 = cadena.substring(0, 3);\n\n        if (bad0.equals(\"bad\")) {\n            return true;\n        }\n\n        if (cadena.length() >= 4) {\n            String bad1 = cadena.substring(1, 4);\n\n            if (bad1.equals(\"bad\")) {\n                return true;\n            }\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "concatenar",
@@ -269,7 +269,7 @@ window.EXERCISES = [
       "concatenar(\"dog\", \"cat\") → \"dogcat\"",
       "concatenar(\"abc\", \"\") → \"abc\""
     ],
-    "code": "public String concatenar(String a, String b) {\n        if (!a.isEmpty() && !b.isEmpty()) { \n            String ultimoCaracterA = a.substring(a.length()-1);\n            String primerCaracterB = b.substring(0, 1);\n\n            if (ultimoCaracterA.equals(primerCaracterB)) {\n                return a.substring(0, a.length()-1) + b;\n            }\n        }\n        return a + b;\n    }"
+    "code": "public String concatenar(String a, String b) {\n    if (!a.isEmpty() && !b.isEmpty()) {\n        String ultimoCaracterA = a.substring(a.length()-1);\n        String primerCaracterB = b.substring(0, 1);\n\n        if (ultimoCaracterA.equals(primerCaracterB)) {\n            return a.substring(0, a.length()-1) + b;\n        }\n    }\n    return a + b;\n}"
   },
   {
     "name": "frenteFinal",
@@ -283,7 +283,7 @@ window.EXERCISES = [
       "frenteFinal(\"edit\") → false",
       "frenteFinal(\"ed\") → true"
     ],
-    "code": "public boolean frenteFinal(String cadena) {\n        if (cadena.length() >= 2) {\n            String primerosDos = cadena.substring(0, 2);\n            String ultimosDos = cadena.substring(cadena.length()-2);\n\n            if (primerosDos.equals(ultimosDos)) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean frenteFinal(String cadena) {\n    if (cadena.length() >= 2) {\n        String primerosDos = cadena.substring(0, 2);\n        String ultimosDos = cadena.substring(cadena.length()-2);\n\n        if (primerosDos.equals(ultimosDos)) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "sinPrimero2",
@@ -297,7 +297,7 @@ window.EXERCISES = [
       "sinPrimero2(\"HelloHi\") → \"HelloHi\"",
       "sinPrimero2(\"Hi\") → \"\""
     ],
-    "code": "public String sinPrimero2(String cadena) {\n        if (cadena.length() == 1) {\n            return cadena;\n        } else if (cadena.length() > 2) {\n            String primerosDos = cadena.substring(0, 2);\n            String ultimosDos = cadena.substring(cadena.length()-2, cadena.length());\n\n            if (primerosDos.equals(ultimosDos)) {\n                return cadena.substring(2, cadena.length());\n            } else {\n                return cadena;\n            }\n        }\n        return \"\";\n    }"
+    "code": "public String sinPrimero2(String cadena) {\n    if (cadena.length() == 1) {\n        return cadena;\n    } else if (cadena.length() > 2) {\n        String primerosDos = cadena.substring(0, 2);\n        String ultimosDos = cadena.substring(cadena.length()-2, cadena.length());\n\n        if (primerosDos.equals(ultimosDos)) {\n            return cadena.substring(2, cadena.length());\n        } else {\n            return cadena;\n        }\n    }\n    return \"\";\n}"
   },
   {
     "name": "cadenaSinX",
@@ -311,7 +311,7 @@ window.EXERCISES = [
       "cadenaSinX(\"xHi\") → \"Hi\"",
       "cadenaSinX(\"Hxix\") → \"Hxi\""
     ],
-    "code": "public String cadenaSinX(String cadena) {\n        if (cadena.length() >= 2) {\n            if (cadena.startsWith(\"x\") && !cadena.endsWith(\"x\")) {\n                return cadena.substring(1);\n            } else if (!cadena.startsWith(\"x\") && cadena.endsWith(\"x\")) { \n                return cadena.substring(0, cadena.length()-1);\n            } else if (cadena.startsWith(\"x\") && cadena.endsWith(\"x\")) {\n                return cadena.substring(1, cadena.length()-1);\n            } else {\n                return cadena;\n            }\n        }\n        return \"\";\n    }"
+    "code": "public String cadenaSinX(String cadena) {\n    if (cadena.length() >= 2) {\n        if (cadena.startsWith(\"x\") && !cadena.endsWith(\"x\")) {\n            return cadena.substring(1);\n        } else if (!cadena.startsWith(\"x\") && cadena.endsWith(\"x\")) {\n            return cadena.substring(0, cadena.length()-1);\n        } else if (cadena.startsWith(\"x\") && cadena.endsWith(\"x\")) {\n            return cadena.substring(1, cadena.length()-1);\n        } else {\n            return cadena;\n        }\n    }\n    return \"\";\n}"
   },
   {
     "name": "creaEtiquetas",
@@ -325,7 +325,7 @@ window.EXERCISES = [
       "creaEtiquetas(\"i\", \"Hello\") → \"<i>Hello</i>\"",
       "creaEtiquetas(\"cite\", \"Yay\") → \"<cite>Yay</cite>\""
     ],
-    "code": "public String creaEtiquetas(String etiqueta, String palabra) {\n        return \"<\" + etiqueta + \">\" + palabra + \"</\" + etiqueta + \">\";\n    }"
+    "code": "public String creaEtiquetas(String etiqueta, String palabra) {\n    return \"<\" + etiqueta + \">\" + palabra + \"</\" + etiqueta + \">\";\n}"
   },
   {
     "name": "firstTwo",
@@ -339,7 +339,7 @@ window.EXERCISES = [
       "primerosDos(\"abcdefg\") → \"ab\"",
       "primerosDos(\"ab\") → \"ab\""
     ],
-    "code": "public String firstTwo(String str) {\n        return (str.length() > 1) ? str.substring(0, 2) : str;\n    }"
+    "code": "public String firstTwo(String str) {\n    return (str.length() > 1) ? str.substring(0, 2) : str;\n}"
   },
   {
     "name": "comboCadena",
@@ -353,7 +353,7 @@ window.EXERCISES = [
       "comboCadena(\"hi\", \"Hello\") → \"hiHellohi\"",
       "comboCadena(\"aaa\", \"b\") → \"baaab\""
     ],
-    "code": "public String comboCadena(String a, String b) {\n        if (a.length() > b.length()) {\n            return b + a + b;\n        } else {\n            return a + b + a;\n        }\n    }"
+    "code": "public String comboCadena(String a, String b) {\n    if (a.length() > b.length()) {\n        return b + a + b;\n    } else {\n        return a + b + a;\n    }\n}"
   },
   {
     "name": "rotar2",
@@ -367,7 +367,7 @@ window.EXERCISES = [
       "rotar2(\"java\") → \"vaja\"",
       "rotar2(\"Hi\") → \"Hi\""
     ],
-    "code": "public String rotar2(String cadena) {\n        if (cadena.length() >= 2) {\n            String ultimosDos = cadena.substring(cadena.length()-2);\n            String resto = cadena.substring(0, cadena.length()-2);\n          return ultimosDos + resto;\n        }\n        return cadena;\n    }"
+    "code": "public String rotar2(String cadena) {\n    if (cadena.length() >= 2) {\n        String ultimosDos = cadena.substring(cadena.length()-2);\n        String resto = cadena.substring(0, cadena.length()-2);\n        return ultimosDos + resto;\n    }\n    return cadena;\n}"
   },
   {
     "name": "dosMedio",
@@ -381,7 +381,7 @@ window.EXERCISES = [
       "dosMedio(\"code\") → \"od\"",
       "dosMedio(\"Practice\") → \"ct\""
     ],
-    "code": "public String dosMedio(String str) {\n        int mitad = str.length()/2;\n        \n        return str.substring(mitad - 1, mitad) + str.substring(mitad, mitad + 1);\n    }"
+    "code": "public String dosMedio(String str) {\n    int mitad = str.length()/2;\n\n    return str.substring(mitad - 1, mitad) + str.substring(mitad, mitad + 1);\n}"
   },
   {
     "name": "dosCaracteres",
@@ -395,7 +395,7 @@ window.EXERCISES = [
       "dosCaracteres(\"java\", 2) → \"va\"",
       "dosCaracteres(\"java\", 3) → \"ja\""
     ],
-    "code": "public String dosCaracteres(String cadena, int indice) {\n        if (indice < 0 || indice == 0 || ((cadena.length() - indice) < 2)) {\n          return cadena.substring(0, 2);\n        } else {\n          return cadena.substring(indice, indice + 2);\n        }\n    }"
+    "code": "public String dosCaracteres(String cadena, int indice) {\n    if (indice < 0 || indice == 0 || ((cadena.length() - indice) < 2)) {\n        return cadena.substring(0, 2);\n    } else {\n        return cadena.substring(indice, indice + 2);\n    }\n}"
   },
   {
     "name": "enPrimer",
@@ -409,7 +409,7 @@ window.EXERCISES = [
       "enPrimer(\"hi\") → \"hi\"",
       "enPrimer(\"h\") → \"h@\""
     ],
-    "code": "public String enPrimer(String cadena) {\n        if (cadena.isEmpty()) {\n          return \"@@\";\n        } else if (cadena.length() >= 2) {\n          return cadena.substring(0, 2);\n        } else {\n          return cadena + \"@\";\n        }\n    }"
+    "code": "public String enPrimer(String cadena) {\n    if (cadena.isEmpty()) {\n        return \"@@\";\n    } else if (cadena.length() >= 2) {\n        return cadena.substring(0, 2);\n    } else {\n        return cadena + \"@\";\n    }\n}"
   },
   {
     "name": "cambiaUltimosDos",
@@ -423,7 +423,7 @@ window.EXERCISES = [
       "cambiaUltimosDos(\"cat\") → \"cta\"",
       "cambiaUltimosDos(\"ab\") → \"ba\""
     ],
-    "code": "public String cambiaUltimosDos(String cadena) {\n        if (cadena.length() >= 2) {\n            char ultimo = cadena.charAt(cadena.length()-1);\n            char penultimo = cadena.charAt(cadena.length()-2);\n            String resto = cadena.substring(0, cadena.length()-2);\n\n            return resto + ultimo + penultimo;\n        }\n        return cadena;\n    }"
+    "code": "public String cambiaUltimosDos(String cadena) {\n    if (cadena.length() >= 2) {\n        char ultimo = cadena.charAt(cadena.length()-1);\n        char penultimo = cadena.charAt(cadena.length()-2);\n        String resto = cadena.substring(0, cadena.length()-2);\n\n        return resto + ultimo + penultimo;\n    }\n    return cadena;\n}"
   },
   {
     "name": "minimaConcatenacion",
@@ -437,7 +437,7 @@ window.EXERCISES = [
       "minimaConcatenacion(\"Hello\", \"java\") → \"ellojava\"",
       "minimaConcatenacion(\"java\", \"Hello\") → \"javaello\""
     ],
-    "code": "public String minimaConcatenacion(String a, String b) {\n        if (a.length() > b.length()) {\n            int diferencia = a.length() - b.length();\n            String igualar = a.substring(diferencia, a.length()); \n            return igualar + b;\n        } else if (b.length() > a.length()) {\n            int diferencia = b.length() - a.length();\n            String igualar = b.substring(diferencia, b.length());\n            return a + igualar;\n        } \n        return a + b;\n    }"
+    "code": "public String minimaConcatenacion(String a, String b) {\n    if (a.length() > b.length()) {\n        int diferencia = a.length() - b.length();\n        String igualar = a.substring(diferencia, a.length());\n        return igualar + b;\n    } else if (b.length() > a.length()) {\n        int diferencia = b.length() - a.length();\n        String igualar = b.substring(diferencia, b.length());\n        return a + igualar;\n    }\n    return a + b;\n}"
   },
   {
     "name": "sinFrente",
@@ -451,7 +451,7 @@ window.EXERCISES = [
       "sinFrente(\"java\") → \"va\"",
       "sinFrente(\"away\") → \"aay\""
     ],
-    "code": "public String sinFrente(String cadena) {    \n        String resultado = \"\";\n        \n        if (cadena.charAt(0) == 'a') {\n            resultado += cadena.charAt(0);\n        }\n        if (cadena.charAt(1) == 'b') {\n            resultado += cadena.charAt(1);\n        }\n        resultado += cadena.substring(2, cadena.length());\n        return resultado;\n    }"
+    "code": "public String sinFrente(String cadena) {\n    String resultado = \"\";\n\n    if (cadena.charAt(0) == 'a') {\n        resultado += cadena.charAt(0);\n    }\n    if (cadena.charAt(1) == 'b') {\n        resultado += cadena.charAt(1);\n    }\n    resultado += cadena.substring(2, cadena.length());\n    return resultado;\n}"
   },
   {
     "name": "sinX2",
@@ -465,7 +465,7 @@ window.EXERCISES = [
       "sinX2(\"Hxi\") → \"Hi\"",
       "sinX2(\"Hi\") → \"Hi\""
     ],
-    "code": "public String sinX2(String cadena) {\n\n        if (cadena.length() <= 1) return \"\";\n\n        String xCero = cadena.substring(0, 1);\n        String xUno = cadena.substring(1, 2);\n        \n        if (xCero.equals(\"x\") && xUno.equals(\"x\")) {\n            return cadena.substring(2);\n        } else if (xCero.equals(\"x\")) {\n            return cadena.substring(1);\n        } else if (xUno.equals(\"x\")) {\n            return cadena.substring(0, 1) + cadena.substring(2);\n        }\n        return cadena;\n    }"
+    "code": "public String sinX2(String cadena) {\n\n    if (cadena.length() <= 1) return \"\";\n\n    String xCero = cadena.substring(0, 1);\n    String xUno = cadena.substring(1, 2);\n\n    if (xCero.equals(\"x\") && xUno.equals(\"x\")) {\n        return cadena.substring(2);\n    } else if (xCero.equals(\"x\")) {\n        return cadena.substring(1);\n    } else if (xUno.equals(\"x\")) {\n        return cadena.substring(0, 1) + cadena.substring(2);\n    }\n    return cadena;\n}"
   },
   {
     "name": "dormido",
@@ -479,7 +479,7 @@ window.EXERCISES = [
       "dormido(true, false) → false",
       "dormido(false, true) → true"
     ],
-    "code": "public boolean dormido(boolean diaSemana, boolean vacaciones) {\n        if (!diaSemana && !vacaciones) {\n            return true;\n        } else if (diaSemana && !vacaciones) {\n            return false;\n        } else if (!diaSemana && vacaciones) {\n            return true;\n        } else {\n            return true;\n        }\n    }"
+    "code": "public boolean dormido(boolean diaSemana, boolean vacaciones) {\n    if (!diaSemana && !vacaciones) {\n        return true;\n    } else if (diaSemana && !vacaciones) {\n        return false;\n    } else if (!diaSemana && vacaciones) {\n        return true;\n    } else {\n        return true;\n    }\n}"
   },
   {
     "name": "diferencia21",
@@ -493,7 +493,7 @@ window.EXERCISES = [
       "diferencia21(10) → 11",
       "diferencia21(21) → 0"
     ],
-    "code": "public int diferencia21(int n) {\n        if (n < 21) {\n            return 21 - n;\n        } else {\n            return (n - 21)*2;\n        }\n    }"
+    "code": "public int diferencia21(int n) {\n    if (n < 21) {\n        return 21 - n;\n    } else {\n        return (n - 21)*2;\n    }\n}"
   },
   {
     "name": "cercaCien",
@@ -507,7 +507,7 @@ window.EXERCISES = [
       "cercaCien(90) → true",
       "cercaCien(89) → false"
     ],
-    "code": "public boolean cercaCien(int n) {\n        if (Math.abs(100 - n) <= 10 || Math.abs(200 - n) <= 10) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean cercaCien(int n) {\n    if (Math.abs(100 - n) <= 10 || Math.abs(200 - n) <= 10) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "eliminarCaracter",
@@ -521,7 +521,7 @@ window.EXERCISES = [
       "eliminarCaracter(\"kitten\", 0) → \"itten\"",
       "eliminarCaracter(\"kitten\", 4) → \"kittn\""
     ],
-    "code": "public String eliminarCaracter(String cadena, int n) {\n        String resultado = \"\";\n\n        if (n >= 0 && n < cadena.length()) {\n            for (int i = 0; i < cadena.length(); i++) {\n                char c = cadena.charAt(i);\n            \n                if (i == n) {\n                    continue;\n                }\n                resultado += c;\n            }\n            return resultado;\n        }\n        return cadena;\n    }"
+    "code": "public String eliminarCaracter(String cadena, int n) {\n    String resultado = \"\";\n\n    if (n >= 0 && n < cadena.length()) {\n        for (int i = 0; i < cadena.length(); i++) {\n            char c = cadena.charAt(i);\n\n            if (i == n) {\n                continue;\n            }\n            resultado += c;\n        }\n        return resultado;\n    }\n    return cadena;\n}"
   },
   {
     "name": "alrededor",
@@ -535,7 +535,7 @@ window.EXERCISES = [
       "alrededor(\"Hello\") → \"oHelloo\"",
       "alrededor(\"a\") → \"aaa\""
     ],
-    "code": "public String alrededor(String cadena) {\n        String ultimoCaracter = cadena.substring(cadena.length() -1);\n\n        String resultado = ultimoCaracter + cadena + ultimoCaracter;\n\n        return resultado;\n    }"
+    "code": "public String alrededor(String cadena) {\n    String ultimoCaracter = cadena.substring(cadena.length() -1);\n\n    String resultado = ultimoCaracter + cadena + ultimoCaracter;\n\n    return resultado;\n}"
   },
   {
     "name": "comienzaHi",
@@ -549,7 +549,7 @@ window.EXERCISES = [
       "comienzaHi(\"hi\") → true",
       "comienzaHi(\"hello hi\") → false"
     ],
-    "code": "public boolean comienzaHi(String cadena) {\n        if (cadena.startsWith(\"hi\")) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean comienzaHi(String cadena) {\n    if (cadena.startsWith(\"hi\")) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "adolescente",
@@ -563,7 +563,7 @@ window.EXERCISES = [
       "adolescente(20, 19, 10) → true",
       "adolescente(20, 10, 13) → true"
     ],
-    "code": "public boolean adolescente(int a, int b, int c) {\n        if (a >= 13 && a <= 19) {\n            return true;\n        }\n        if (b >= 13 && b <= 19) {\n            return true;\n        }\n        if (c >= 13 && c <= 19) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean adolescente(int a, int b, int c) {\n    if (a >= 13 && a <= 19) {\n        return true;\n    }\n    if (b >= 13 && b <= 19) {\n        return true;\n    }\n    if (c >= 13 && c <= 19) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "comienzaMix",
@@ -577,7 +577,7 @@ window.EXERCISES = [
       "comienzaMix(\"pix snacks\") → true",
       "comienzaMix(\"piz snacks\") → false"
     ],
-    "code": "public boolean comienzaMix(String cadena) {\n        if (!cadena.isEmpty()) {\n            cadena = cadena.substring(1);\n\n            if (cadena.startsWith(\"ix\")) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean comienzaMix(String cadena) {\n    if (!cadena.isEmpty()) {\n        cadena = cadena.substring(1);\n\n        if (cadena.startsWith(\"ix\")) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "close10",
@@ -591,7 +591,7 @@ window.EXERCISES = [
       "cerca10(13, 8) → 8",
       "cerca10(13, 7) → 0"
     ],
-    "code": "public int close10(int a, int b) {\n        int primero = Math.abs(10 - a);\n        int segundo = Math.abs(b - 10);\n        \n        if (primero < segundo) {\n            return a;\n        } else if (primero > segundo) {\n            return b;\n        } else {\n            return 0;\n        }\n    }"
+    "code": "public int close10(int a, int b) {\n    int primero = Math.abs(10 - a);\n    int segundo = Math.abs(b - 10);\n\n    if (primero < segundo) {\n        return a;\n    } else if (primero > segundo) {\n        return b;\n    } else {\n        return 0;\n    }\n}"
   },
   {
     "name": "contieneE",
@@ -605,7 +605,7 @@ window.EXERCISES = [
       "contieneE(\"Heelle\") → true",
       "contieneE(\"Heelele\") → false"
     ],
-    "code": "public boolean contieneE(String cadena) {\n        int contador = 0;\n        \n        for (int i = 0; i < cadena.length(); i++) {\n          char c = cadena.charAt(i);\n          \n            if (c == 'e') {\n                contador++;\n            }\n        }\n\n        if (contador > 0 && contador <= 3) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean contieneE(String cadena) {\n    int contador = 0;\n\n    for (int i = 0; i < cadena.length(); i++) {\n        char c = cadena.charAt(i);\n\n        if (c == 'e') {\n            contador++;\n        }\n    }\n\n    if (contador > 0 && contador <= 3) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "caracterN",
@@ -619,7 +619,7 @@ window.EXERCISES = [
       "caracterN(\"abcdefg\", 2) → \"aceg\"",
       "caracterN(\"abcdefg\", 3) → \"adg\""
     ],
-    "code": "public String caracterN(String str, int n) {\n        String resultado = \"\";\n        int indice = 0;\n        \n        while (indice < str.length()) {\n            resultado += str.charAt(indice);\n            indice = indice + n;\n        }\n        return resultado;\n    }"
+    "code": "public String caracterN(String str, int n) {\n    String resultado = \"\";\n    int indice = 0;\n\n    while (indice < str.length()) {\n        resultado += str.charAt(indice);\n        indice = indice + n;\n    }\n    return resultado;\n}"
   },
   {
     "name": "monoProblema",
@@ -633,7 +633,7 @@ window.EXERCISES = [
       "monoProblema(false, false) → true",
       "monoProblema(true, false) → false"
     ],
-    "code": "public boolean monoProblema(boolean aSonrie, boolean bSonrie) {\n        if (aSonrie ^ bSonrie) {\n            return false;\n        } else {\n            return true;\n        }\n    }"
+    "code": "public boolean monoProblema(boolean aSonrie, boolean bSonrie) {\n    if (aSonrie ^ bSonrie) {\n        return false;\n    } else {\n        return true;\n    }\n}"
   },
   {
     "name": "loroProblema",
@@ -647,7 +647,7 @@ window.EXERCISES = [
       "loroProblema(true, 7) → false",
       "loroProblema(false, 6) → false"
     ],
-    "code": "public boolean loroProblema(boolean hablando, int hora) {\n        if (hablando && (hora < 7 || hora > 20)) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean loroProblema(boolean hablando, int hora) {\n    if (hablando && (hora < 7 || hora > 20)) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "posNeg",
@@ -661,7 +661,7 @@ window.EXERCISES = [
       "posNeg(-1, 1, false) → true",
       "posNeg(-4, -5, true) → true"
     ],
-    "code": "public boolean posNeg(int a, int b, boolean negativo) {\n        if (!negativo && (a < 0 ^ b < 0)) {\n            return true;\n        }\n        \n        if (negativo && (a < 0 && b < 0)) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean posNeg(int a, int b, boolean negativo) {\n    if (!negativo && (a < 0 ^ b < 0)) {\n        return true;\n    }\n\n    if (negativo && (a < 0 && b < 0)) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "cambiaPrimerUltimo",
@@ -675,7 +675,7 @@ window.EXERCISES = [
       "cambiaPrimerUltimo(\"a\") → \"a\"",
       "cambiaPrimerUltimo(\"ab\") → \"ba\""
     ],
-    "code": "public String cambiaPrimerUltimo(String cadena) {\n        String resultado = \"\";\n\n        if (!cadena.isEmpty()) {\n            if (cadena.length() > 1) {\n                resultado += cadena.charAt(cadena.length()-1);\n                resultado += cadena.substring(1, cadena.length()-1);\n                resultado += cadena.charAt(0);\n            } else {\n                return cadena;\n            }\n        }\n        return resultado;\n    }"
+    "code": "public String cambiaPrimerUltimo(String cadena) {\n    String resultado = \"\";\n\n    if (!cadena.isEmpty()) {\n        if (cadena.length() > 1) {\n            resultado += cadena.charAt(cadena.length()-1);\n            resultado += cadena.substring(1, cadena.length()-1);\n            resultado += cadena.charAt(0);\n        } else {\n            return cadena;\n        }\n    }\n    return resultado;\n}"
   },
   {
     "name": "or35",
@@ -689,7 +689,7 @@ window.EXERCISES = [
       "multiplo35(10) → true",
       "multiplo35(8) → false"
     ],
-    "code": "public boolean or35(int n) {\n        if (n % 3 == 0 || n % 5 == 0) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean or35(int n) {\n    if (n % 3 == 0 || n % 5 == 0) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "frioCaliente",
@@ -703,7 +703,7 @@ window.EXERCISES = [
       "frioCaliente(-1, 120) → true",
       "frioCaliente(2, 120) → false"
     ],
-    "code": "public boolean frioCaliente(int temp1, int temp2) {\n        if ((temp1 < 0 || temp2 < 0) && (temp1 > 100 || temp2 > 100)) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean frioCaliente(int temp1, int temp2) {\n    if ((temp1 < 0 || temp2 < 0) && (temp1 > 100 || temp2 > 100)) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "AdolescenteSolitario",
@@ -717,7 +717,7 @@ window.EXERCISES = [
       "AdolescenteSolitario(21, 19) → true",
       "AdolescenteSolitario(13, 13) → false"
     ],
-    "code": "public boolean AdolescenteSolitario(int a, int b) {\n        boolean aAdolescente = false;\n        boolean bAdolescente = false;\n        \n        if (a >= 13 && a <= 19) {\n            aAdolescente = true;\n        }\n        if (b >= 13 && b <= 19) {\n            bAdolescente = true;\n        }\n        \n        if ((aAdolescente && !bAdolescente) || (!aAdolescente && bAdolescente)) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean AdolescenteSolitario(int a, int b) {\n    boolean aAdolescente = false;\n    boolean bAdolescente = false;\n\n    if (a >= 13 && a <= 19) {\n        aAdolescente = true;\n    }\n    if (b >= 13 && b <= 19) {\n        bAdolescente = true;\n    }\n\n    if ((aAdolescente && !bAdolescente) || (!aAdolescente && bAdolescente)) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "ComienzaOz",
@@ -731,7 +731,7 @@ window.EXERCISES = [
       "ComienzaOz(\"bzoo\") → \"z\"",
       "ComienzaOz(\"oxx\") → \"o\""
     ],
-    "code": "public String ComienzaOz(String cadena) {\n        String resultado = \"\";\n        \n        if (cadena.length() > 1) {\n            if (cadena.charAt(0) == 'o') {\n                resultado += cadena.charAt(0);\n            }\n            if (cadena.charAt(1) == 'z') {\n                resultado += cadena.charAt(1);\n            }\n            return resultado;  \n        }\n        return cadena;\n    }"
+    "code": "public String ComienzaOz(String cadena) {\n    String resultado = \"\";\n\n    if (cadena.length() > 1) {\n        if (cadena.charAt(0) == 'o') {\n            resultado += cadena.charAt(0);\n        }\n        if (cadena.charAt(1) == 'z') {\n            resultado += cadena.charAt(1);\n        }\n        return resultado;\n    }\n    return cadena;\n}"
   },
   {
     "name": "entre3050",
@@ -745,7 +745,7 @@ window.EXERCISES = [
       "entre3050(30, 41) → false",
       "entre3050(40, 50) → true"
     ],
-    "code": "public boolean entre3050(int a, int b) {\n        if ((a >= 30 && a <= 40) && (b >= 30 && b <= 40)) {\n            return true;\n        }\n\n        if ((a >= 40 && a <= 50) && (b >= 40 && b <= 50)) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean entre3050(int a, int b) {\n    if ((a >= 30 && a <= 40) && (b >= 30 && b <= 40)) {\n        return true;\n    }\n\n    if ((a >= 40 && a <= 50) && (b >= 40 && b <= 50)) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "ultimoDigito",
@@ -759,7 +759,7 @@ window.EXERCISES = [
       "ultimoDigito(6, 17) → false",
       "ultimoDigito(3, 113) → true"
     ],
-    "code": "public boolean ultimoDigito(int a, int b) {\n        String aDigito = Integer.toString(a);\n        String bDigito = Integer.toString(b);\n\n        char primero = aDigito.charAt(Math.abs(aDigito.length()-1));\n        char ultimo = bDigito.charAt(Math.abs(bDigito.length()-1));\n        \n        if (primero == ultimo) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean ultimoDigito(int a, int b) {\n    String aDigito = Integer.toString(a);\n    String bDigito = Integer.toString(b);\n\n    char primero = aDigito.charAt(Math.abs(aDigito.length()-1));\n    char ultimo = bDigito.charAt(Math.abs(bDigito.length()-1));\n\n    if (primero == ultimo) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "sumaDoble",
@@ -773,7 +773,7 @@ window.EXERCISES = [
       "sumaDoble(3, 2) → 5",
       "sumaDoble(2, 2) → 8"
     ],
-    "code": "public int sumaDoble(int a, int b) {\n        if (a != b) {\n            return a + b;\n        } else {\n            return (a + b) * 2;\n        }\n    }"
+    "code": "public int sumaDoble(int a, int b) {\n    if (a != b) {\n        return a + b;\n    } else {\n        return (a + b) * 2;\n    }\n}"
   },
   {
     "name": "es10",
@@ -787,7 +787,7 @@ window.EXERCISES = [
       "es10(9, 9) → false",
       "es10(1, 9) → true"
     ],
-    "code": "public boolean es10(int a, int b) {\n        if ((a == 10 || b == 10) || a + b == 10) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean es10(int a, int b) {\n    if ((a == 10 || b == 10) || a + b == 10) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "notString",
@@ -801,7 +801,7 @@ window.EXERCISES = [
       "comienzaNot(\"x\") → \"not x\"",
       "comienzaNot(\"not bad\") → \"not bad\""
     ],
-    "code": "public String notString(String cadena) {\n        if (cadena.startsWith(\"not\")) {\n            return cadena;\n        } else {\n            String not = \"not\";\n\n            return not + \" \" + cadena;\n        }\n    }"
+    "code": "public String notString(String cadena) {\n    if (cadena.startsWith(\"not\")) {\n        return cadena;\n    } else {\n        String not = \"not\";\n\n        return not + \" \" + cadena;\n    }\n}"
   },
   {
     "name": "front3",
@@ -815,7 +815,7 @@ window.EXERCISES = [
       "frente3(\"Chocolate\") → \"ChoChoCho\"",
       "frente3(\"abc\") → \"abcabcabc\""
     ],
-    "code": "public String front3(String cadena) {\n        String resultado = \"\";\n\n        if (cadena.length() >= 3) {\n            resultado = cadena.substring(0, 3);\n        } else {\n            resultado = cadena;\n        }\n        return resultado + resultado + resultado;\n    }"
+    "code": "public String front3(String cadena) {\n    String resultado = \"\";\n\n    if (cadena.length() >= 3) {\n        resultado = cadena.substring(0, 3);\n    } else {\n        resultado = cadena;\n    }\n    return resultado + resultado + resultado;\n}"
   },
   {
     "name": "front22",
@@ -829,7 +829,7 @@ window.EXERCISES = [
       "dosPriFi(\"Ha\") → \"HaHaHa\"",
       "dosPriFi(\"abc\") → \"ababcab\""
     ],
-    "code": "public String front22(String cadena) {\n        String dosPrimeros;\n\n        if (cadena.length() >= 2) {\n            dosPrimeros = cadena.substring(0, 2);\n        } else {\n            dosPrimeros = cadena;\n        }\n        return dosPrimeros + cadena + dosPrimeros;\n    }"
+    "code": "public String front22(String cadena) {\n    String dosPrimeros;\n\n    if (cadena.length() >= 2) {\n        dosPrimeros = cadena.substring(0, 2);\n    } else {\n        dosPrimeros = cadena;\n    }\n    return dosPrimeros + cadena + dosPrimeros;\n}"
   },
   {
     "name": "entre1020",
@@ -843,7 +843,7 @@ window.EXERCISES = [
       "entre1020(21, 12) → true",
       "entre1020(8, 99) → false"
     ],
-    "code": "public boolean entre1020(int a, int b) {\n        if (a >= 10 && a <= 20) {\n            return true;\n        }\n\n        if (b >= 10 && b <= 20) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean entre1020(int a, int b) {\n    if (a >= 10 && a <= 20) {\n        return true;\n    }\n\n    if (b >= 10 && b <= 20) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "eliminaDel",
@@ -857,7 +857,7 @@ window.EXERCISES = [
       "eliminaDel(\"adelHello\") → \"aHello\"",
       "eliminaDel(\"adedbc\") → \"adedbc\""
     ],
-    "code": "public String eliminaDel(String cadena) {\n        if (cadena.length() >= 4) {\n            String del = cadena.substring(1, 4);\n          \n            if (del.equals(\"del\")) {\n                String resultado = cadena.substring(0, 1) + cadena.substring(del.length() + 1, cadena.length());\n                return resultado;\n            }\n        }\n        return cadena;\n    }"
+    "code": "public String eliminaDel(String cadena) {\n    if (cadena.length() >= 4) {\n        String del = cadena.substring(1, 4);\n\n        if (del.equals(\"del\")) {\n            String resultado = cadena.substring(0, 1) + cadena.substring(del.length() + 1, cadena.length());\n            return resultado;\n        }\n    }\n    return cadena;\n}"
   },
   {
     "name": "enteroMayor",
@@ -871,7 +871,7 @@ window.EXERCISES = [
       "enteroMayor(1, 3, 2) → 3",
       "enteroMayor(3, 2, 1) → 3"
     ],
-    "code": "public int enteroMayor(int a, int b, int c) {\n        if (a <= b && b <= c) {\n            return c;\n        } else if (a <= c && c <= b) {\n            return b;\n        } else if (b <= a && a <= c) {\n            return c;\n        } else if (b <= c && c <= a) {\n            return a;\n        } else if (c <= a && a <= b) {\n            return b;\n        } else {\n            return a;\n        }\n    }"
+    "code": "public int enteroMayor(int a, int b, int c) {\n    if (a <= b && b <= c) {\n        return c;\n    } else if (a <= c && c <= b) {\n        return b;\n    } else if (b <= a && a <= c) {\n        return c;\n    } else if (b <= c && c <= a) {\n        return a;\n    } else if (c <= a && a <= b) {\n        return b;\n    } else {\n        return a;\n    }\n}"
   },
   {
     "name": "max1020",
@@ -885,7 +885,7 @@ window.EXERCISES = [
       "mayor1020(19, 11) → 19",
       "mayor1020(11, 9) → 11"
     ],
-    "code": "public int max1020(int a, int b) {\n        if (a < b) {\n            int tmp = a;\n            a = b;\n            b = tmp;\n        }\n\n        if (a >= 10 && a <= 20) {\n            return a;\n        }\n\n        if (b >= 10 && b <= 20) {\n            return b;\n        }\n\n        return 0;\n    }"
+    "code": "public int max1020(int a, int b) {\n    if (a < b) {\n        int tmp = a;\n        a = b;\n        b = tmp;\n    }\n\n    if (a >= 10 && a <= 20) {\n        return a;\n    }\n\n    if (b >= 10 && b <= 20) {\n        return b;\n    }\n\n    return 0;\n}"
   },
   {
     "name": "finalMayusculas",
@@ -899,7 +899,7 @@ window.EXERCISES = [
       "finalMayusculas(\"hi there\") → \"hi thERE\"",
       "finalMayusculas(\"hi\") → \"HI\""
     ],
-    "code": "public String finalMayusculas(String cadena) {\n        if (cadena.length() >= 3) {\n            String resto = cadena.substring(0, cadena.length()-3);\n            String ultimoTres = cadena.substring(cadena.length()-3);\n\n            return resto + ultimoTres.toUpperCase();\n        } else {\n            return cadena.toUpperCase();\n        }\n    }"
+    "code": "public String finalMayusculas(String cadena) {\n    if (cadena.length() >= 3) {\n        String resto = cadena.substring(0, cadena.length()-3);\n        String ultimoTres = cadena.substring(cadena.length()-3);\n\n        return resto + ultimoTres.toUpperCase();\n    } else {\n        return cadena.toUpperCase();\n    }\n}"
   },
   {
     "name": "copiaCadena",
@@ -913,7 +913,7 @@ window.EXERCISES = [
       "copiaCadena(\"Hi\", 3) → \"HiHiHi\"",
       "copiaCadena(\"Hi\", 1) → \"Hi\""
     ],
-    "code": "public String copiaCadena(String cadena, int n) {\n        String nuevaCadena = \"\";\n        \n        while (n > 0) {\n            nuevaCadena += cadena;\n            n--;\n        }\n        return nuevaCadena;\n    }"
+    "code": "public String copiaCadena(String cadena, int n) {\n    String nuevaCadena = \"\";\n\n    while (n > 0) {\n        nuevaCadena += cadena;\n        n--;\n    }\n    return nuevaCadena;\n}"
   },
   {
     "name": "ultimosDos",
@@ -927,7 +927,7 @@ window.EXERCISES = [
       "ultimosDos(\"xaxxaxaxx\") → 1",
       "ultimosDos(\"axxxaaxx\") → 2"
     ],
-    "code": "public int ultimosDos(String cadena) {\n        if (cadena.length() < 2) return 0;\n\n        String ultDos = cadena.substring(cadena.length()-2);\n\n        int i = 0;\n        int contador = 0;\n\n        while (i < cadena.length()-2) {\n            if (cadena.substring(i, i+2).equals(ultDos)) {\n                contador++;\n            }\n            i++;\n        }\n        return contador;\n    }"
+    "code": "public int ultimosDos(String cadena) {\n    if (cadena.length() < 2) return 0;\n\n    String ultDos = cadena.substring(cadena.length()-2);\n\n    int i = 0;\n    int contador = 0;\n\n    while (i < cadena.length()-2) {\n        if (cadena.substring(i, i+2).equals(ultDos)) {\n            contador++;\n        }\n        i++;\n    }\n    return contador;\n}"
   },
   {
     "name": "matriz123",
@@ -941,7 +941,7 @@ window.EXERCISES = [
       "matriz123([1, 1, 2, 4, 1]) → false",
       "matriz123([1, 1, 2, 1, 2, 3]) → true"
     ],
-    "code": "public boolean matriz123(int[] nums) {\n        boolean secuencia = false;\n        \n        for (int i = 0; i < nums.length; i++) {\n            if (i < nums.length-2) {\n                if (nums[i] == 1 && nums[i+1] == 2 && nums[i+2] == 3) {\n                    secuencia = true; \n                }\n            }\n        }\n        if (secuencia) return true;\n        return false;\n    }"
+    "code": "public boolean matriz123(int[] nums) {\n    boolean secuencia = false;\n\n    for (int i = 0; i < nums.length; i++) {\n        if (i < nums.length-2) {\n            if (nums[i] == 1 && nums[i+1] == 2 && nums[i+2] == 3) {\n                secuencia = true;\n            }\n        }\n    }\n    if (secuencia) return true;\n    return false;\n}"
   },
   {
     "name": "paresAlternos",
@@ -955,7 +955,7 @@ window.EXERCISES = [
       "paresAlternos(\"Chocolate\") → \"Chole\"",
       "paresAlternos(\"CodingHorror\") → \"Congrr\""
     ],
-    "code": "public String paresAlternos(String cadena) {\n        String nuevaCadena = \"\";\n        \n        for (int i = 0; i < cadena.length(); i+=4) {\n            if (cadena.length() > 1) {\n                nuevaCadena += cadena.charAt(i);\n                if (i < cadena.length()-1) {\n                    nuevaCadena += cadena.charAt(i+1);\n                }\n            } else {\n                return cadena;\n            }\n        }\n        return nuevaCadena;\n    }"
+    "code": "public String paresAlternos(String cadena) {\n    String nuevaCadena = \"\";\n\n    for (int i = 0; i < cadena.length(); i+=4) {\n        if (cadena.length() > 1) {\n            nuevaCadena += cadena.charAt(i);\n            if (i < cadena.length()-1) {\n                nuevaCadena += cadena.charAt(i+1);\n            }\n        } else {\n            return cadena;\n        }\n    }\n    return nuevaCadena;\n}"
   },
   {
     "name": "noTres",
@@ -969,7 +969,7 @@ window.EXERCISES = [
       "noTres([1, 1, 2, 2, 2, 1]) → false",
       "noTres([1, 1, 1, 2, 2, 2, 1]) → false"
     ],
-    "code": "public boolean noTres(int[] nums) {\n        boolean tres = false;\n        \n        for (int i = 0; i < nums.length; i++) {\n            if (i < nums.length-2) {\n                if (nums[i] == nums[i+1] && nums[i+1] == nums[i+2]) {\n                    tres = true;\n                }\n            }\n        }\n        \n        if (tres) return false;\n        return true;\n    }"
+    "code": "public boolean noTres(int[] nums) {\n    boolean tres = false;\n\n    for (int i = 0; i < nums.length; i++) {\n        if (i < nums.length-2) {\n            if (nums[i] == nums[i+1] && nums[i+1] == nums[i+2]) {\n                tres = true;\n            }\n        }\n    }\n\n    if (tres) return false;\n    return true;\n}"
   },
   {
     "name": "copiasFrente",
@@ -983,7 +983,7 @@ window.EXERCISES = [
       "copiasFrente(\"Chocolate\", 3) → \"ChoChoCho\"",
       "copiasFrente(\"Abc\", 3) → \"AbcAbcAbc\""
     ],
-    "code": "public String copiasFrente(String cadena, int n) {\n        String nuevaCadena = \"\";\n        int contador = 0;\n        \n        if (n == 0) {\n            return \"\";\n        }\n        \n        while (contador < n) {\n            if (cadena.length() > 2) {\n                nuevaCadena += cadena.substring(0, 3);\n                contador++;  \n            } else {\n                nuevaCadena += cadena;\n                contador++;\n            }\n        }\n        return nuevaCadena;\n    }"
+    "code": "public String copiasFrente(String cadena, int n) {\n    String nuevaCadena = \"\";\n    int contador = 0;\n\n    if (n == 0) {\n        return \"\";\n    }\n\n    while (contador < n) {\n        if (cadena.length() > 2) {\n            nuevaCadena += cadena.substring(0, 3);\n            contador++;\n        } else {\n            nuevaCadena += cadena;\n            contador++;\n        }\n    }\n    return nuevaCadena;\n}"
   },
   {
     "name": "cadenaBits",
@@ -997,7 +997,7 @@ window.EXERCISES = [
       "cadenaBits(\"Hi\") → \"H\"",
       "cadenaBits(\"Heeololeo\") → \"Hello\""
     ],
-    "code": "public String cadenaBits(String cadena) {\n        String nuevaCadena = \"\";\n        int i = 0;\n        \n        while (i < cadena.length()) {\n            nuevaCadena += cadena.charAt(i);\n            i+=2;\n        }\n        return nuevaCadena;\n    }"
+    "code": "public String cadenaBits(String cadena) {\n    String nuevaCadena = \"\";\n    int i = 0;\n\n    while (i < cadena.length()) {\n        nuevaCadena += cadena.charAt(i);\n        i+=2;\n    }\n    return nuevaCadena;\n}"
   },
   {
     "name": "cuentaMatriz9",
@@ -1011,7 +1011,7 @@ window.EXERCISES = [
       "cuentaMatriz9([1, 9, 9]) → 2",
       "cuentaMatriz9([1, 9, 9, 3, 9]) → 3"
     ],
-    "code": "public int cuentaMatriz9(int[] nums) {\n        int contador = 0;\n        for (int i = 0; i < nums.length; i++) {\n            if (nums[i] == 9) {\n                contador++;\n            }\n        }\n        return contador;\n    }"
+    "code": "public int cuentaMatriz9(int[] nums) {\n    int contador = 0;\n    for (int i = 0; i < nums.length; i++) {\n        if (nums[i] == 9) {\n            contador++;\n        }\n    }\n    return contador;\n}"
   },
   {
     "name": "cadenaPartida",
@@ -1025,7 +1025,7 @@ window.EXERCISES = [
       "cadenaPartida(\"abc\", \"abc\") → 2",
       "cadenaPartida(\"abc\", \"axc\") → 0"
     ],
-    "code": "public int cadenaPartida(String a, String b) {\n        int contador = 0;\n        int longitud = Math.min(a.length(), b.length());\n        \n        for (int i = 0; i < longitud; i++) {\n            if (i < longitud-1) {\n                String sub = a.substring(i, i+2);\n                if (sub.equals(b.substring(i, i+2))) {\n                    contador++;\n                }\n            }\n        }\n        return contador;\n    }"
+    "code": "public int cadenaPartida(String a, String b) {\n    int contador = 0;\n    int longitud = Math.min(a.length(), b.length());\n\n    for (int i = 0; i < longitud; i++) {\n        if (i < longitud-1) {\n            String sub = a.substring(i, i+2);\n            if (sub.equals(b.substring(i, i+2))) {\n                contador++;\n            }\n        }\n    }\n    return contador;\n}"
   },
   {
     "name": "cadenaYak",
@@ -1039,7 +1039,7 @@ window.EXERCISES = [
       "cadenaYak(\"pakyak\") → \"pak\"",
       "cadenaYak(\"yak123ya\") → \"123ya\""
     ],
-    "code": "public String cadenaYak(String cadena) {\n        String nuevaCadena = \"\";\n        \n        for (int i = 0; i < cadena.length(); i++) {\n            if (i < cadena.length()-2 && cadena.charAt(i) == 'y' && cadena.charAt(i+2) == 'k') {\n                i = i + 2;\n            } else {\n                nuevaCadena += cadena.charAt(i);\n            }\n        }\n        return nuevaCadena;\n    }"
+    "code": "public String cadenaYak(String cadena) {\n    String nuevaCadena = \"\";\n\n    for (int i = 0; i < cadena.length(); i++) {\n        if (i < cadena.length()-2 && cadena.charAt(i) == 'y' && cadena.charAt(i+2) == 'k') {\n            i = i + 2;\n        } else {\n            nuevaCadena += cadena.charAt(i);\n        }\n    }\n    return nuevaCadena;\n}"
   },
   {
     "name": "tiene271",
@@ -1053,7 +1053,7 @@ window.EXERCISES = [
       "tiene271([1, 2, 8, 1]) → false",
       "tiene271([2, 7, 1]) → true"
     ],
-    "code": "public boolean tiene271(int[] nums) {\n        for (int i = 0; i < nums.length-2; i++) {\n            int siete = nums[i]+5;\n            int dos = Math.abs(nums[i+2] - (siete - 6));\n            \n            if (nums[i+1] == siete && dos <= 2) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean tiene271(int[] nums) {\n    for (int i = 0; i < nums.length-2; i++) {\n        int siete = nums[i]+5;\n        int dos = Math.abs(nums[i+2] - (siete - 6));\n\n        if (nums[i+1] == siete && dos <= 2) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "cuentaXX",
@@ -1067,7 +1067,7 @@ window.EXERCISES = [
       "cuentaXX(\"xxx\") → 2",
       "cuentaXX(\"xxxx\") → 3"
     ],
-    "code": "public int cuentaXX(String cadena) {\n        int contador = -1;\n        \n        for (int i = 0; i < cadena.length(); i++) {\n            if (Character.isWhitespace(cadena.charAt(i))) {\n                contador++;\n                break;\n            }\n            if (cadena.charAt(i) == 'x') {\n                contador++;\n            }\n        }\n        if (contador == -1) return 0;\n        return contador;\n    }"
+    "code": "public int cuentaXX(String cadena) {\n    int contador = -1;\n\n    for (int i = 0; i < cadena.length(); i++) {\n        if (Character.isWhitespace(cadena.charAt(i))) {\n            contador++;\n            break;\n        }\n        if (cadena.charAt(i) == 'x') {\n            contador++;\n        }\n    }\n    if (contador == -1) return 0;\n    return contador;\n}"
   },
   {
     "name": "cadenaExplosion",
@@ -1081,7 +1081,7 @@ window.EXERCISES = [
       "cadenaExplosion(\"abc\") → \"aababc\"",
       "cadenaExplosion(\"ab\") → \"aab\""
     ],
-    "code": "public String cadenaExplosion(String cadena) {\n        String nuevaCadena = \"\";\n        int contador = 1;\n\n        for (int i = 0; i < cadena.length(); i++) {\n            for (int j = 0; j < contador; j++) {\n                nuevaCadena += cadena.charAt(j);\n            }\n            contador++;\n        }\n        return nuevaCadena;\n    }"
+    "code": "public String cadenaExplosion(String cadena) {\n    String nuevaCadena = \"\";\n    int contador = 1;\n\n    for (int i = 0; i < cadena.length(); i++) {\n        for (int j = 0; j < contador; j++) {\n            nuevaCadena += cadena.charAt(j);\n        }\n        contador++;\n    }\n    return nuevaCadena;\n}"
   },
   {
     "name": "frenteMatriz9",
@@ -1095,7 +1095,7 @@ window.EXERCISES = [
       "frenteMatriz9([1, 2, 3, 4, 9]) → false",
       "frenteMatriz9([1, 2, 3, 4, 5]) → false"
     ],
-    "code": "public boolean frenteMatriz9(int[] nums) {\n        for (int i = 0; i < nums.length; i++) {\n            if (i < 4) {\n                if (nums[i] == 9) {\n                    return true;\n                }\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean frenteMatriz9(int[] nums) {\n    for (int i = 0; i < nums.length; i++) {\n        if (i < 4) {\n            if (nums[i] == 9) {\n                return true;\n            }\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "cadenaX",
@@ -1109,7 +1109,7 @@ window.EXERCISES = [
       "cadenaX(\"abxxxcd\") → \"abcd\"",
       "cadenaX(\"xabxxxcdx\") → \"xabcdx\""
     ],
-    "code": "public String cadenaX(String cadena) {\n        String nuevaCadena = \"\";\n\n        if (cadena.length() > 1) {\n            nuevaCadena += cadena.charAt(0);\n            for (int i = 0; i < cadena.length(); i++) {\n                if (i > 0 && i < cadena.length()-1) {\n                    if (cadena.charAt(i) != 'x') {\n                        nuevaCadena += cadena.charAt(i);\n                    }\n                }\n            }\n            return nuevaCadena + cadena.charAt(cadena.length()-1);\n        }\n        return cadena;\n    }"
+    "code": "public String cadenaX(String cadena) {\n    String nuevaCadena = \"\";\n\n    if (cadena.length() > 1) {\n        nuevaCadena += cadena.charAt(0);\n        for (int i = 0; i < cadena.length(); i++) {\n            if (i > 0 && i < cadena.length()-1) {\n                if (cadena.charAt(i) != 'x') {\n                    nuevaCadena += cadena.charAt(i);\n                }\n            }\n        }\n        return nuevaCadena + cadena.charAt(cadena.length()-1);\n    }\n    return cadena;\n}"
   },
   {
     "name": "matriz667",
@@ -1123,7 +1123,7 @@ window.EXERCISES = [
       "matriz667([6, 6, 2, 6]) → 1",
       "matriz667([6, 7, 2, 6]) → 1"
     ],
-    "code": "public int matriz667(int[] nums) {\n        int contador = 0;\n\n        for (int i = 0; i < nums.length; i++) {\n            if (i < nums.length-1) {\n                if (nums[i] == 6 && (nums[i+1] == 6 || nums[i+1] == 7)) {\n                    contador++;\n                }\n            }\n        }\n        return contador;\n    }"
+    "code": "public int matriz667(int[] nums) {\n    int contador = 0;\n\n    for (int i = 0; i < nums.length; i++) {\n        if (i < nums.length-1) {\n            if (nums[i] == 6 && (nums[i+1] == 6 || nums[i+1] == 7)) {\n                contador++;\n            }\n        }\n    }\n    return contador;\n}"
   },
   {
     "name": "FistaPuros",
@@ -1137,7 +1137,7 @@ window.EXERCISES = [
       "FistaPuros(50, false) → true",
       "FistaPuros(70, true) → true"
     ],
-    "code": "public boolean FistaPuros(int puros, boolean finSemana) {\n        if (finSemana) {\n            if (puros >= 40) {\n                return true;\n            }\n            return false;\n        } else {\n            if (puros >= 40 && puros <= 60) {\n                return true;\n            }\n            return false;\n        }\n    }"
+    "code": "public boolean FistaPuros(int puros, boolean finSemana) {\n    if (finSemana) {\n        if (puros >= 40) {\n            return true;\n        }\n        return false;\n    } else {\n        if (puros >= 40 && puros <= 60) {\n            return true;\n        }\n        return false;\n    }\n}"
   },
   {
     "name": "detencionVelocidad",
@@ -1151,7 +1151,7 @@ window.EXERCISES = [
       "detencionVelocidad(65, false) → 1",
       "detencionVelocidad(65, true) → 0"
     ],
-    "code": "public int detencionVelocidad(int velocidad, boolean cumpleanios) {\n        if (!cumpleanios) {\n            if (velocidad <= 60) {\n                return 0;\n            } else if (velocidad >= 61 && velocidad <= 80) {\n                return 1;\n            } else if (velocidad >= 81) {\n                return 2;\n            }\n        } else {\n            if (velocidad <= 65) {\n                return 0;\n            } else if (velocidad >= 66 && velocidad <= 85) {\n                return 1;\n            } else if (velocidad >= 86) {\n                return 2;\n            }\n        }\n        return 0;\n    }"
+    "code": "public int detencionVelocidad(int velocidad, boolean cumpleanios) {\n    if (!cumpleanios) {\n        if (velocidad <= 60) {\n            return 0;\n        } else if (velocidad >= 61 && velocidad <= 80) {\n            return 1;\n        } else if (velocidad >= 81) {\n            return 2;\n        }\n    } else {\n        if (velocidad <= 65) {\n            return 0;\n        } else if (velocidad >= 66 && velocidad <= 85) {\n            return 1;\n        } else if (velocidad >= 86) {\n            return 2;\n        }\n    }\n    return 0;\n}"
   },
   {
     "name": "seis",
@@ -1165,7 +1165,7 @@ window.EXERCISES = [
       "seis(4, 5) → false",
       "seis(1, 5) → true"
     ],
-    "code": "public boolean seis(int a, int b) {\n        if (a == 6) {\n            return true;\n        }\n\n        if (b == 6) {\n            return true;\n        }\n\n        if (a + b == 6) {\n            return true;\n        }\n\n        if (Math.abs(a - b) == 6) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean seis(int a, int b) {\n    if (a == 6) {\n        return true;\n    }\n\n    if (b == 6) {\n        return true;\n    }\n\n    if (a + b == 6) {\n        return true;\n    }\n\n    if (Math.abs(a - b) == 6) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "masMultiplo20",
@@ -1179,7 +1179,7 @@ window.EXERCISES = [
       "masMultiplo20(21) → verdadero",
       "masMultiplo20(22) → verdadero"
     ],
-    "code": "public boolean masMultiplo20(int n) {\n        if (n % 20 == 1 || n % 20 == 2) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean masMultiplo20(int n) {\n    if (n % 20 == 1 || n % 20 == 2) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "cercaDiez",
@@ -1193,7 +1193,7 @@ window.EXERCISES = [
       "cercaDiez(17) → false",
       "cercaDiez(19) → true"
     ],
-    "code": "public boolean cercaDiez(int num) {\n        if (num % 10 == 0) {\n            return true;\n        }\n\n        if (num % 10 == 1) {\n            return true;\n        }\n\n        if (num % 10 == 2) {\n            return true;\n        }\n\n        if (num % 10 == 8) {\n            return true;\n        }\n\n        if (num % 10 == 9) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean cercaDiez(int num) {\n    if (num % 10 == 0) {\n        return true;\n    }\n\n    if (num % 10 == 1) {\n        return true;\n    }\n\n    if (num % 10 == 2) {\n        return true;\n    }\n\n    if (num % 10 == 8) {\n        return true;\n    }\n\n    if (num % 10 == 9) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "fiestaTeDulce",
@@ -1207,7 +1207,7 @@ window.EXERCISES = [
       "fiestaTeDulce(3, 8) → 0",
       "fiestaTeDulce(20, 6) → 2"
     ],
-    "code": "public int fiestaTeDulce(int te, int dulce) {\n        if (te < 5 || dulce < 5) {\n            return 0;\n        } else if (te >= dulce*2 || dulce >= te*2) {\n            return 2;\n        } else {\n            return 1;\n        }\n    }"
+    "code": "public int fiestaTeDulce(int te, int dulce) {\n    if (te < 5 || dulce < 5) {\n        return 0;\n    } else if (te >= dulce*2 || dulce >= te*2) {\n        return 2;\n    } else {\n        return 1;\n    }\n}"
   },
   {
     "name": "dosComoUno",
@@ -1221,7 +1221,7 @@ window.EXERCISES = [
       "dosComoUno(3, 1, 2) → true",
       "dosComoUno(3, 2, 2) → false"
     ],
-    "code": "public boolean dosComoUno(int a, int b, int c) {\n        if (a + b == c) {\n            return true;\n        } else if (b + c == a) {\n            return true;\n        } else if (a + c == b) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean dosComoUno(int a, int b, int c) {\n    if (a + b == c) {\n        return true;\n    } else if (b + c == a) {\n        return true;\n    } else if (a + c == b) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "ultimoDigito",
@@ -1235,7 +1235,7 @@ window.EXERCISES = [
       "ultimoDigito(23, 19, 12) → false",
       "ultimoDigito(23, 19, 3) → true"
     ],
-    "code": "public boolean ultimoDigito(int a, int b, int c) {\n        String aUltimo = \"\" + a % 10;\n        String bUltimo = \"\" + b % 10;\n        String cUltimo = \"\" + c % 10;\n        \n        if (aUltimo.equals(bUltimo)) {\n            return true;\n        }\n\n        if (aUltimo.equals(cUltimo)) {\n            return true;\n        }\n\n        if (bUltimo.equals(cUltimo)) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean ultimoDigito(int a, int b, int c) {\n    String aUltimo = \"\" + a % 10;\n    String bUltimo = \"\" + b % 10;\n    String cUltimo = \"\" + c % 10;\n\n    if (aUltimo.equals(bUltimo)) {\n        return true;\n    }\n\n    if (aUltimo.equals(cUltimo)) {\n        return true;\n    }\n\n    if (bUltimo.equals(cUltimo)) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "mayorResiduo5",
@@ -1249,7 +1249,7 @@ window.EXERCISES = [
       "mayorResiduo5(6, 2) → 6",
       "mayorResiduo5(3, 2) → 3"
     ],
-    "code": "public int mayorResiduo5(int a, int b) {\n        int aResiduo = a % 5;\n        int bResiduo = b % 5;\n        \n        if (a == b) {\n            return 0;\n        } else if (aResiduo == bResiduo) {\n            if (a < b) {\n                return a;\n            } else {\n                return b;\n            }\n        } else {\n            if (a > b) {\n                return a;\n            } else {\n                return b;\n            }\n        }\n    }"
+    "code": "public int mayorResiduo5(int a, int b) {\n    int aResiduo = a % 5;\n    int bResiduo = b % 5;\n\n    if (a == b) {\n        return 0;\n    } else if (aResiduo == bResiduo) {\n        if (a < b) {\n            return a;\n        } else {\n            return b;\n        }\n    } else {\n        if (a > b) {\n            return a;\n        } else {\n            return b;\n        }\n    }\n}"
   },
   {
     "name": "billeteAzul",
@@ -1263,7 +1263,7 @@ window.EXERCISES = [
       "billeteAzul(9, 2, 0) → 0",
       "billeteAzul(6, 1, 4) → 10"
     ],
-    "code": "public int billeteAzul(int a, int b, int c) {\n        if (a + b == 10 || b + c == 10 || a + c == 10) {\n            return 10;\n        } else if (a + b == b + c + 10 || a + b == a + c + 10) {\n            return 5;\n        } else {\n            return 0;\n        }\n    }"
+    "code": "public int billeteAzul(int a, int b, int c) {\n    if (a + b == 10 || b + c == 10 || a + c == 10) {\n        return 10;\n    } else if (a + b == b + c + 10 || a + b == a + c + 10) {\n        return 5;\n    } else {\n        return 0;\n    }\n}"
   },
   {
     "name": "citaModa",
@@ -1277,7 +1277,7 @@ window.EXERCISES = [
       "citaModa(5, 2) → 0",
       "citaModa(5, 5) → 1"
     ],
-    "code": "public int citaModa(int tu, int cita) {\n        if (tu >= 8 && cita > 2) {\n            return 2;\n        } else if (tu > 2 && cita >= 8) {\n            return 2;\n        } else if (tu <= 2 || cita <= 2) {\n            return 0;\n        } else {\n            return 1;\n        }\n    }"
+    "code": "public int citaModa(int tu, int cita) {\n    if (tu >= 8 && cita > 2) {\n        return 2;\n    } else if (tu > 2 && cita >= 8) {\n        return 2;\n    } else if (tu <= 2 || cita <= 2) {\n        return 0;\n    } else {\n        return 1;\n    }\n}"
   },
   {
     "name": "sortaordenarSumaSum",
@@ -1291,7 +1291,7 @@ window.EXERCISES = [
       "ordenarSuma(9, 4) → 20",
       "ordenarSuma(10, 11) → 21"
     ],
-    "code": "public int sortaordenarSumaSum(int a, int b) {\n        if (a + b >= 10 && a + b <= 19) {\n            return 20;\n        } else if (a + b > 19) {\n            return a + b;\n        } else {\n            return a + b;\n        }\n    }"
+    "code": "public int sortaordenarSumaSum(int a, int b) {\n    if (a + b >= 10 && a + b <= 19) {\n        return 20;\n    } else if (a + b > 19) {\n        return a + b;\n    } else {\n        return a + b;\n    }\n}"
   },
   {
     "name": "en1A10",
@@ -1305,7 +1305,7 @@ window.EXERCISES = [
       "en1A10(11, false) → false",
       "en1A10(11, true) → true"
     ],
-    "code": "public boolean en1A10(int n, boolean modoFuera) {\n        if (!modoFuera && n >= 1 && n <= 10) {\n            return true;\n        } else if (modoFuera && (n <= 1 || n >= 10)) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean en1A10(int n, boolean modoFuera) {\n    if (!modoFuera && n >= 1 && n <= 10) {\n        return true;\n    } else if (modoFuera && (n <= 1 || n >= 10)) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "multiplo35",
@@ -1319,7 +1319,7 @@ window.EXERCISES = [
       "multiplo35(10) → true",
       "multiplo35(15) → false"
     ],
-    "code": "public boolean multiplo35(int n) {\n        if (n % 3 == 0 ^ n % 5 == 0) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean multiplo35(int n) {\n    if (n % 3 == 0 ^ n % 5 == 0) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "sumaAdolescente",
@@ -1333,7 +1333,7 @@ window.EXERCISES = [
       "sumaAdolescente(10, 13) → 19",
       "sumaAdolescente(13, 2) → 19"
     ],
-    "code": "public int sumaAdolescente(int a, int b) {\n        if (a >= 13 && a <= 19 || b >= 13 && b <= 19) {\n          return 19;\n        } else {\n          return a + b;\n        }\n    }"
+    "code": "public int sumaAdolescente(int a, int b) {\n    if (a >= 13 && a <= 19 || b >= 13 && b <= 19) {\n        return 19;\n    } else {\n        return a + b;\n    }\n}"
   },
   {
     "name": "cadenaEfervescencia",
@@ -1347,7 +1347,7 @@ window.EXERCISES = [
       "cadenaEfervescencia(\"dib\") → \"Buzz\"",
       "cadenaEfervescencia(\"fib\") → \"FizzBuzz\""
     ],
-    "code": "public String cadenaEfervescencia(String str) {\n        if (str.startsWith(\"f\") && str.endsWith(\"b\")) {\n            return \"FizzBuzz\";\n        } else if (str.startsWith(\"f\")) {\n            return \"Fizz\";\n        } else if (str.endsWith(\"b\")) {\n            return \"Buzz\";\n        } else {\n            return str;\n        }\n    }"
+    "code": "public String cadenaEfervescencia(String str) {\n    if (str.startsWith(\"f\") && str.endsWith(\"b\")) {\n        return \"FizzBuzz\";\n    } else if (str.startsWith(\"f\")) {\n        return \"Fizz\";\n    } else if (str.endsWith(\"b\")) {\n        return \"Buzz\";\n    } else {\n        return str;\n    }\n}"
   },
   {
     "name": "enOrden",
@@ -1361,7 +1361,7 @@ window.EXERCISES = [
       "enOrden(1, 2, 1, false) → false",
       "enOrden(1, 1, 2, true) → true"
     ],
-    "code": "public boolean enOrden(int a, int b, int c, boolean bOk) {\n        if (!bOk && b > a && c > b) {\n            return true;\n        } else if (bOk && c > b) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean enOrden(int a, int b, int c, boolean bOk) {\n    if (!bOk && b > a && c > b) {\n        return true;\n    } else if (bOk && c > b) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "menos10",
@@ -1375,7 +1375,7 @@ window.EXERCISES = [
       "menos10(1, 7, 10) → false",
       "menos10(11, 1, 7) → true"
     ],
-    "code": "public boolean menos10(int a, int b, int c) {\n        if (Math.abs(a-b) >= 10) {\n            return true;\n        }\n\n        if (Math.abs(b-c) >= 10) {\n            return true;\n        }\n\n        if (Math.abs(a-c) >= 10) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean menos10(int a, int b, int c) {\n    if (Math.abs(a-b) >= 10) {\n        return true;\n    }\n\n    if (Math.abs(b-c) >= 10) {\n        return true;\n    }\n\n    if (Math.abs(a-c) >= 10) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "billeteRojo",
@@ -1389,7 +1389,7 @@ window.EXERCISES = [
       "billeteRojo(2, 2, 1) → 0",
       "billeteRojo(0, 0, 0) → 5"
     ],
-    "code": "public int billeteRojo(int a, int b, int c) {\n        if (a == 2 && b == 2 && c == 2) {\n            return 10;\n        } else if (a == b && a == c) {\n            return 5;\n        } else if (b != a && c != a) {\n            return 1;\n        } else {\n            return 0;\n        }\n    }"
+    "code": "public int billeteRojo(int a, int b, int c) {\n    if (a == 2 && b == 2 && c == 2) {\n        return 10;\n    } else if (a == b && a == c) {\n        return 5;\n    } else if (b != a && c != a) {\n        return 1;\n    } else {\n        return 0;\n    }\n}"
   },
   {
     "name": "compartirDigito",
@@ -1403,7 +1403,7 @@ window.EXERCISES = [
       "compartirDigito(12, 43) → false",
       "compartirDigito(12, 44) → false"
     ],
-    "code": "public boolean compartirDigito(int a, int b) {\n        if (a / 10 == b / 10) {\n            return true;\n        }\n        if (a % 10 == b % 10) {\n            return true;\n        }\n        if (b / 10 == a % 10) {\n            return true;\n        }\n        if (a / 10 == b % 10) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean compartirDigito(int a, int b) {\n    if (a / 10 == b / 10) {\n        return true;\n    }\n    if (a % 10 == b % 10) {\n        return true;\n    }\n    if (b / 10 == a % 10) {\n        return true;\n    }\n    if (a / 10 == b % 10) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "ardillasJuegan",
@@ -1417,7 +1417,7 @@ window.EXERCISES = [
       "ardillasJuegan(95, false) → false",
       "ardillasJuegan(95, true) → true"
     ],
-    "code": "public boolean ardillasJuegan(int temperatura, boolean verano) {\n        if (verano && (temperatura >= 60 && temperatura <= 100)) {\n            return true;\n        }\n        if (!verano && (temperatura >= 60 && temperatura <= 90)) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean ardillasJuegan(int temperatura, boolean verano) {\n    if (verano && (temperatura >= 60 && temperatura <= 100)) {\n        return true;\n    }\n    if (!verano && (temperatura >= 60 && temperatura <= 90)) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "alarmClock",
@@ -1431,7 +1431,7 @@ window.EXERCISES = [
       "despertador(5, false) → \"7:00\"",
       "despertador(0, false) → \"10:00\""
     ],
-    "code": "public String alarmClock(int dia, boolean vacaciones) {\n        if (!vacaciones) {\n            if (dia >= 1 && dia <= 5) {\n                return \"7:00\";\n            } else {\n                return \"10:00\";\n            }\n        } else {\n            if (dia >= 1 && dia <= 5) {\n                return \"10:00\";\n            } else {\n                return \"off\";\n            }\n        }  \n    }"
+    "code": "public String alarmClock(int dia, boolean vacaciones) {\n    if (!vacaciones) {\n        if (dia >= 1 && dia <= 5) {\n            return \"7:00\";\n        } else {\n            return \"10:00\";\n        }\n    } else {\n        if (dia >= 1 && dia <= 5) {\n            return \"10:00\";\n        } else {\n            return \"off\";\n        }\n    }\n}"
   },
   {
     "name": "especialMultiplo11",
@@ -1445,7 +1445,7 @@ window.EXERCISES = [
       "especialMultiplo11(23) → true",
       "especialMultiplo11(24) → false"
     ],
-    "code": "public boolean especialMultiplo11(int n) {\n        if (n % 11 == 0 || n % 11 == 1) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean especialMultiplo11(int n) {\n    if (n % 11 == 0 || n % 11 == 1) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "unoDosmultiplo20",
@@ -1459,7 +1459,7 @@ window.EXERCISES = [
       "unoDosmultiplo20(19) → true",
       "unoDosmultiplo20(20) → false"
     ],
-    "code": "public boolean unoDosmultiplo20(int n) {\n        if ((n+1) % 20 == 0) {\n          return true;\n        }\n\n        if ((n+2) % 20 == 0) {\n            return true;\n        }\n        return false;\n    }"
+    "code": "public boolean unoDosmultiplo20(int n) {\n    if ((n+1) % 20 == 0) {\n        return true;\n    }\n\n    if ((n+2) % 20 == 0) {\n        return true;\n    }\n    return false;\n}"
   },
   {
     "name": "suenaCelular",
@@ -1473,7 +1473,7 @@ window.EXERCISES = [
       "suenaCelular(false, false, true) → false",
       "suenaCelular(true, false, false) → false"
     ],
-    "code": "public boolean suenaCelular(boolean manana, boolean mama, boolean durmiendo) {\n        if (mama && !durmiendo) {\n            return true;\n        } else if (!manana && !mama && !durmiendo) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean suenaCelular(boolean manana, boolean mama, boolean durmiendo) {\n    if (mama && !durmiendo) {\n        return true;\n    } else if (!manana && !mama && !durmiendo) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "cadenaEfervescencia2",
@@ -1487,7 +1487,7 @@ window.EXERCISES = [
       "cadenaEfervescencia2(2) → \"2!\"",
       "cadenaEfervescencia2(3) → \"Fizz!\""
     ],
-    "code": "public String cadenaEfervescencia2(int n) {\n        if (n % 3 == 0 && n % 5 == 0) {\n            return \"FizzBuzz!\";\n        }\n        if (n % 3 == 0) {\n            return \"Fizz!\";\n        } \n        if (n % 5 == 0) {\n            return \"Buzz!\";\n        } \n        return String.format(\"%d!\", n);\n    }"
+    "code": "public String cadenaEfervescencia2(int n) {\n    if (n % 3 == 0 && n % 5 == 0) {\n        return \"FizzBuzz!\";\n    }\n    if (n % 3 == 0) {\n        return \"Fizz!\";\n    }\n    if (n % 5 == 0) {\n        return \"Buzz!\";\n    }\n    return String.format(\"%d!\", n);\n}"
   },
   {
     "name": "enOrdenIgual",
@@ -1501,7 +1501,7 @@ window.EXERCISES = [
       "enOrdenIgual(5, 7, 6, false) → false",
       "enOrdenIgual(5, 5, 7, true) → true"
     ],
-    "code": "public boolean enOrdenIgual(int a, int b, int c, boolean igualdad) {\n        if (a == b && b < c && igualdad) {\n            return true;\n        } else if (a == b && b == c && igualdad) {\n            return true;\n        } else if (a < b && b == c && igualdad) {\n            return true;\n        }else if (a < b && b < c && !igualdad)  {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean enOrdenIgual(int a, int b, int c, boolean igualdad) {\n    if (a == b && b < c && igualdad) {\n        return true;\n    } else if (a == b && b == c && igualdad) {\n        return true;\n    } else if (a < b && b == c && igualdad) {\n        return true;\n    }else if (a < b && b < c && !igualdad)  {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "sinDobles",
@@ -1515,7 +1515,7 @@ window.EXERCISES = [
       "sinDobles(3, 3, true) → 7",
       "sinDobles(3, 3, false) → 6"
     ],
-    "code": "public int sinDobles(int dado1, int dado2, boolean dobles) {\n        if (dado1 == 6 && dado2 == 6 && dobles) {\n            return dado1 + 1;\n        } else if (dado1 == dado2 && dobles) {\n            return dado1 + dado2 + 1;\n        } else {\n            return dado1 + dado2;\n        }\n    }"
+    "code": "public int sinDobles(int dado1, int dado2, boolean dobles) {\n    if (dado1 == 6 && dado2 == 6 && dobles) {\n        return dado1 + 1;\n    } else if (dado1 == dado2 && dobles) {\n        return dado1 + dado2 + 1;\n    } else {\n        return dado1 + dado2;\n    }\n}"
   },
   {
     "name": "billeteVerde",
@@ -1529,7 +1529,7 @@ window.EXERCISES = [
       "billeteVerde(2, 2, 2) → 20",
       "billeteVerde(1, 1, 2) → 10"
     ],
-    "code": "public int billeteVerde(int a, int b, int c) {\n        if (a == b && b == c) {\n            return 20;\n        } else if (a != b && b == c) {\n            return 10;\n        } else if (a == b && b != c) {\n            return 10;\n        } else if (a == c && c != b) {\n            return 10;\n        } else {\n            return 0;\n        }\n    }"
+    "code": "public int billeteVerde(int a, int b, int c) {\n    if (a == b && b == c) {\n        return 20;\n    } else if (a != b && b == c) {\n        return 10;\n    } else if (a == b && b != c) {\n        return 10;\n    } else if (a == c && c != b) {\n        return 10;\n    } else {\n        return 0;\n    }\n}"
   },
   {
     "name": "sumaLimite",
@@ -1543,7 +1543,7 @@ window.EXERCISES = [
       "sumaLimite(8, 3) → 8",
       "sumaLimite(8, 1) → 9"
     ],
-    "code": "public int sumaLimite(int a, int b) {\n        String aCadena = String.valueOf(a);\n        int suma = a + b;\n        String sumaInt = String.valueOf(suma);\n        \n        if (aCadena.length() == sumaInt.length()) {\n          return a + b;\n        } else {\n          return a;\n        }\n    }"
+    "code": "public int sumaLimite(int a, int b) {\n    String aCadena = String.valueOf(a);\n    int suma = a + b;\n    String sumaInt = String.valueOf(suma);\n\n    if (aCadena.length() == sumaInt.length()) {\n        return a + b;\n    } else {\n        return a;\n    }\n}"
   },
   {
     "name": "hacerLadrillos",
@@ -1557,7 +1557,7 @@ window.EXERCISES = [
       "hacerLadrillos(3, 1, 9) → false",
       "hacerLadrillos(3, 2, 10) → true"
     ],
-    "code": "public boolean hacerLadrillos(int pequeno, int grande, int meta) {\n        boolean resultado = ((pequeno + grande * 5) < meta) || (meta % 5 > pequeno) ? false : true;\n        return resultado;\n    }"
+    "code": "public boolean hacerLadrillos(int pequeno, int grande, int meta) {\n    boolean resultado = ((pequeno + grande * 5) < meta) || (meta % 5 > pequeno) ? false : true;\n    return resultado;\n}"
   },
   {
     "name": "noAdolescentes",
@@ -1581,7 +1581,7 @@ window.EXERCISES = [
       "noSumaAdolescentes(2, 13, 1) → 3",
       "noSumaAdolescentes(2, 1, 14) → 3"
     ],
-    "code": "public int noSumaAdolescentes(int a, int b, int c) {\n        if (a == 13 || a == 14 || a > 16 && a <= 19) {\n            a = 0;\n        }\n        \n        if (b == 13 || b == 14 || b > 16 && b <= 19) {\n            b = 0;\n        }\n        \n        if (c == 13 || c == 14 || c > 16 && c <= 19) {\n            c = 0;\n        }\n        return a + b + c;\n    }"
+    "code": "public int noSumaAdolescentes(int a, int b, int c) {\n    if (a == 13 || a == 14 || a > 16 && a <= 19) {\n        a = 0;\n    }\n\n    if (b == 13 || b == 14 || b > 16 && b <= 19) {\n        b = 0;\n    }\n\n    if (c == 13 || c == 14 || c > 16 && c <= 19) {\n        c = 0;\n    }\n    return a + b + c;\n}"
   },
   {
     "name": "veintiuna",
@@ -1595,7 +1595,7 @@ window.EXERCISES = [
       "veintiuna(21, 19) → 21",
       "veintiuna(19, 22) → 19"
     ],
-    "code": "public int veintiuna(int a, int b) {\n        if (a <= 21 && b <= 21) {\n            if (a > b) {\n                return a;\n            } else {\n                return b;\n            }\n        } else if (a <= 21 && b > 21) {\n            return a;\n        } else if (b <= 21 && a > 21) {\n            return b;\n        } else {\n            return 0;\n        }\n    }"
+    "code": "public int veintiuna(int a, int b) {\n    if (a <= 21 && b <= 21) {\n        if (a > b) {\n            return a;\n        } else {\n            return b;\n        }\n    } else if (a <= 21 && b > 21) {\n        return a;\n    } else if (b <= 21 && a > 21) {\n        return b;\n    } else {\n        return 0;\n    }\n}"
   },
   {
     "name": "sumaSolitaria",
@@ -1609,7 +1609,7 @@ window.EXERCISES = [
       "sumaSolitaria(3, 2, 3) → 2",
       "sumaSolitaria(3, 3, 3) → 0"
     ],
-    "code": "public int sumaSolitaria(int a, int b, int c) {\n        if (a == b && b == c) {\n            return 0;\n        } else if (a == b) {\n            return c;\n        } else if (b == c) {\n            return a;\n        } else if (a == c) {\n            return b;\n        } else {\n            return a + b + c;\n        }\n    }"
+    "code": "public int sumaSolitaria(int a, int b, int c) {\n    if (a == b && b == c) {\n        return 0;\n    } else if (a == b) {\n        return c;\n    } else if (b == c) {\n        return a;\n    } else if (a == c) {\n        return b;\n    } else {\n        return a + b + c;\n    }\n}"
   },
   {
     "name": "redondear10",
@@ -1633,7 +1633,7 @@ window.EXERCISES = [
       "redondearSuma(12, 13, 14) → 30",
       "redondearSuma(6, 4, 4) → 10"
     ],
-    "code": "public int redondearSuma(int a, int b, int c) {\n        int redondearA = redondear10(a);\n        int redondearB = redondear10(b);\n        int redondearC = redondear10(c);\n        \n        return redondearA + redondearB + redondearC;\n    }"
+    "code": "public int redondearSuma(int a, int b, int c) {\n    int redondearA = redondear10(a);\n    int redondearB = redondear10(b);\n    int redondearC = redondear10(c);\n\n    return redondearA + redondearB + redondearC;\n}"
   },
   {
     "name": "redondear10",
@@ -1643,7 +1643,7 @@ window.EXERCISES = [
     "file": "Logico2.java",
     "statement": "",
     "examples": [],
-    "code": "public int redondear10(int num) {\n        String cadena = \"\" + num;\n        int numero = 0;\n        \n        if (cadena.length() == 1) {\n            numero = Integer.parseInt(\"\"+cadena.charAt(0));\n        } else {\n            numero = Integer.parseInt(\"\"+cadena.charAt(cadena.length()-1));\n        }\n        \n        if (numero == 4) {\n            return num - 4;\n        }\n        \n        if (numero == 3) {\n            return num - 3;\n        }\n        \n        if (numero == 2) {\n            return num - 2;\n        }\n        \n        if (numero == 1) {\n            return num - 1;\n        }\n        \n        if (numero == 5) {\n            return num + 5;\n        }\n        if (numero == 6) {\n            return num + 4;\n        }\n        if (numero == 7) {\n            return num + 3;\n        }\n        if (numero == 8) {\n            return num + 2;\n        }\n        if (numero == 9) {\n            return num + 1;\n        }\n        return num;\n    }"
+    "code": "public int redondear10(int num) {\n    String cadena = \"\" + num;\n    int numero = 0;\n\n    if (cadena.length() == 1) {\n        numero = Integer.parseInt(\"\"+cadena.charAt(0));\n    } else {\n        numero = Integer.parseInt(\"\"+cadena.charAt(cadena.length()-1));\n    }\n\n    if (numero == 4) {\n        return num - 4;\n    }\n\n    if (numero == 3) {\n        return num - 3;\n    }\n\n    if (numero == 2) {\n        return num - 2;\n    }\n\n    if (numero == 1) {\n        return num - 1;\n    }\n\n    if (numero == 5) {\n        return num + 5;\n    }\n    if (numero == 6) {\n        return num + 4;\n    }\n    if (numero == 7) {\n        return num + 3;\n    }\n    if (numero == 8) {\n        return num + 2;\n    }\n    if (numero == 9) {\n        return num + 1;\n    }\n    return num;\n}"
   },
   {
     "name": "espacioUniforme",
@@ -1657,7 +1657,7 @@ window.EXERCISES = [
       "espacioUniforme(4, 6, 2) → true",
       "espacioUniforme(4, 6, 3) → false"
     ],
-    "code": "public boolean espacioUniforme(int a, int b, int c) {\n        if (a == b && b == c) {\n            return true;\n        }\n        \n        if (a == b || b == c) {\n            return false;\n        }\n        \n        if (Math.abs(a - b) == Math.abs(a - c)) {\n            return true;\n        }\n        \n        if (Math.abs(b - a) == Math.abs(b - c)) {\n            return true;\n        }\n        \n        if (Math.abs(c - a) == Math.abs(c - b)) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean espacioUniforme(int a, int b, int c) {\n    if (a == b && b == c) {\n        return true;\n    }\n\n    if (a == b || b == c) {\n        return false;\n    }\n\n    if (Math.abs(a - b) == Math.abs(a - c)) {\n        return true;\n    }\n\n    if (Math.abs(b - a) == Math.abs(b - c)) {\n        return true;\n    }\n\n    if (Math.abs(c - a) == Math.abs(c - b)) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "afortunadaSuma",
@@ -1671,7 +1671,7 @@ window.EXERCISES = [
       "afortunadaSuma(1, 2, 13) → 3",
       "afortunadaSuma(1, 13, 3) → 1"
     ],
-    "code": "public int afortunadaSuma(int a, int b, int c) {\n        int suma = a + b + c;\n\n        if (a == 13) {\n            return 0;\n        } else if (b == 13) {\n            return a;\n        } else if (c == 13) {\n            return a + b;\n        } else {\n            return suma;\n        }\n    }"
+    "code": "public int afortunadaSuma(int a, int b, int c) {\n    int suma = a + b + c;\n\n    if (a == 13) {\n        return 0;\n    } else if (b == 13) {\n        return a;\n    } else if (c == 13) {\n        return a + b;\n    } else {\n        return suma;\n    }\n}"
   },
   {
     "name": "cercaLejos",
@@ -1685,7 +1685,7 @@ window.EXERCISES = [
       "cercaLejos(1, 2, 3) → falso",
       "cercaLejos(4, 1, 3) → verdadero"
     ],
-    "code": "public boolean cercaLejos(int a, int b, int c) {\n        if (Math.abs(a - b) <= 1) {\n            if (Math.abs(a - c) >= 2 && Math.abs(b - c) >= 2) {\n                return true;\n            }\n        }\n        \n        if (Math.abs(a - c) <= 1) {\n            if (Math.abs(a - b) >= 2 && Math.abs(b - c) >= 2) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean cercaLejos(int a, int b, int c) {\n    if (Math.abs(a - b) <= 1) {\n        if (Math.abs(a - c) >= 2 && Math.abs(b - c) >= 2) {\n            return true;\n        }\n    }\n\n    if (Math.abs(a - c) <= 1) {\n        if (Math.abs(a - b) >= 2 && Math.abs(b - c) >= 2) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "hacerChocolates",
@@ -1699,7 +1699,7 @@ window.EXERCISES = [
       "hacerChocolates(4, 1, 10) → -1",
       "hacerChocolates(4, 1, 7) → 2"
     ],
-    "code": "public int hacerChocolates(int pequena, int grande, int meta) {\n        int barrasGrandes = 0;\n\n        if (grande < meta / 5) {\n            barrasGrandes = grande;\n        } else {\n            barrasGrandes = meta/5;\n        }\n        int resto = meta - (barrasGrandes * 5);\n        if (resto <= pequena) return resto;\n        return -1;\n    }"
+    "code": "public int hacerChocolates(int pequena, int grande, int meta) {\n    int barrasGrandes = 0;\n\n    if (grande < meta / 5) {\n        barrasGrandes = grande;\n    } else {\n        barrasGrandes = meta/5;\n    }\n    int resto = meta - (barrasGrandes * 5);\n    if (resto <= pequena) return resto;\n    return -1;\n}"
   },
   {
     "name": "primeroUltimo6",
@@ -1713,7 +1713,7 @@ window.EXERCISES = [
       "primeroUltimo6([6, 1, 2, 3]) → true",
       "primeroUltimo6([13, 6, 1, 2, 3]) → false"
     ],
-    "code": "public boolean primeroUltimo6(int[] nums) {\n        if (nums[0] == 6 || nums[nums.length-1] == 6) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean primeroUltimo6(int[] nums) {\n    if (nums[0] == 6 || nums[nums.length-1] == 6) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "primeroUltimoComun",
@@ -1727,7 +1727,7 @@ window.EXERCISES = [
       "primeroUltimoComun([1, 2, 3], [7, 3, 2]) → false",
       "primeroUltimoComun([1, 2, 3], [1, 3]) → true"
     ],
-    "code": "public boolean primeroUltimoComun(int[] a, int[] b) {\n        if (a[0] == b[0]) {\n            return true;\n        } else if (a[a.length-1] == b[b.length-1]) {\n            return true;\n        } else {\n            return false;\n        }\n    }"
+    "code": "public boolean primeroUltimoComun(int[] a, int[] b) {\n    if (a[0] == b[0]) {\n        return true;\n    } else if (a[a.length-1] == b[b.length-1]) {\n        return true;\n    } else {\n        return false;\n    }\n}"
   },
   {
     "name": "revertir3",
@@ -1741,7 +1741,7 @@ window.EXERCISES = [
       "revertir3([5, 11, 9]) → [9, 11, 5]",
       "revertir3([7, 0, 0]) → [0, 0, 7]"
     ],
-    "code": "public int[] revertir3(int[] nums) {\n        return new int[] {nums[2], nums[1], nums[0]};\n    }"
+    "code": "public int[] revertir3(int[] nums) {\n    return new int[] {nums[2], nums[1], nums[0]};\n}"
   },
   {
     "name": "intermedio",
@@ -1755,7 +1755,7 @@ window.EXERCISES = [
       "intermedio([7, 7, 7], [3, 8, 0]) → [7, 8]",
       "intermedio([5, 2, 9], [1, 4, 5]) → [2, 4]"
     ],
-    "code": "public int[] intermedio(int[] a, int[] b) {\n        int[] c = new int[2];\n        \n        c[0] = a[1];\n        c[1] = b[1];\n        \n        return c;\n    }"
+    "code": "public int[] intermedio(int[] a, int[] b) {\n    int[] c = new int[2];\n\n    c[0] = a[1];\n    c[1] = b[1];\n\n    return c;\n}"
   },
   {
     "name": "ni2Ni3",
@@ -1769,7 +1769,7 @@ window.EXERCISES = [
       "ni2Ni3([4, 2]) → false",
       "ni2Ni3([3, 5]) → false"
     ],
-    "code": "public boolean ni2Ni3(int[] nums) {\n        if (nums[0] == 2) {\n          return false;\n        }\n        if (nums[1] == 2) {\n            return false;\n        }\n        if (nums[0] == 3) {\n            return false;\n        }\n        if (nums[1] == 3) {\n            return false;\n        }\n        return true;\n    }"
+    "code": "public boolean ni2Ni3(int[] nums) {\n    if (nums[0] == 2) {\n        return false;\n    }\n    if (nums[1] == 2) {\n        return false;\n    }\n    if (nums[0] == 3) {\n        return false;\n    }\n    if (nums[1] == 3) {\n        return false;\n    }\n    return true;\n}"
   },
   {
     "name": "arreglo23",
@@ -1783,7 +1783,7 @@ window.EXERCISES = [
       "arreglo23([2, 3, 5]) → [2, 0, 5]",
       "arreglo23([1, 2, 1]) → [1, 2, 1]"
     ],
-    "code": "public int[] arreglo23(int[] nums) {\n        if (nums[0] == 2 && nums[1] == 3) {\n            nums[1] = 0;\n        }\n        if (nums[1] == 2 && nums[2] == 3) {\n            nums[2] = 0;\n        }\n        return nums;\n    }"
+    "code": "public int[] arreglo23(int[] nums) {\n    if (nums[0] == 2 && nums[1] == 3) {\n        nums[1] = 0;\n    }\n    if (nums[1] == 2 && nums[2] == 3) {\n        nums[2] = 0;\n    }\n    return nums;\n}"
   },
   {
     "name": "makeMiddle",
@@ -1797,7 +1797,7 @@ window.EXERCISES = [
       "dosMedio([7, 1, 2, 3, 4, 9]) → [2, 3]",
       "dosMedio([1, 2]) → [1, 2]"
     ],
-    "code": "public int[] makeMiddle(int[] nums) {\n        int mid = nums.length/2;\n        \n        return new int[] {nums[mid-1], nums[mid]};\n    }"
+    "code": "public int[] makeMiddle(int[] nums) {\n    int mid = nums.length/2;\n\n    return new int[] {nums[mid-1], nums[mid]};\n}"
   },
   {
     "name": "medioTres",
@@ -1811,7 +1811,7 @@ window.EXERCISES = [
       "medioTres([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]",
       "medioTres([1, 2, 3]) → [1, 2, 3]"
     ],
-    "code": "public int[] medioTres(int[] nums) {\n        int mid = nums.length/2;\n        \n        return new int[] {nums[mid-1], nums[mid], nums[mid+1]};\n    }"
+    "code": "public int[] medioTres(int[] nums) {\n    int mid = nums.length/2;\n\n    return new int[] {nums[mid-1], nums[mid], nums[mid+1]};\n}"
   },
   {
     "name": "desafortunado1",
@@ -1825,7 +1825,7 @@ window.EXERCISES = [
       "desafortunado1([2, 1, 3, 4, 5]) → true",
       "desafortunado1([1, 1, 1]) → false"
     ],
-    "code": "public boolean desafortunado1(int[] nums) {\n        if (nums.length >= 2) {\n            if (nums[0] == 1 && nums[1] == 3) {\n                return true;\n            } else if (nums[1] == 1 && nums[2] == 3) {\n                return true;\n            } else if (nums[nums.length-2] == 1 && nums[nums.length-1] == 3) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean desafortunado1(int[] nums) {\n    if (nums.length >= 2) {\n        if (nums[0] == 1 && nums[1] == 3) {\n            return true;\n        } else if (nums[1] == 1 && nums[2] == 3) {\n            return true;\n        } else if (nums[nums.length-2] == 1 && nums[nums.length-1] == 3) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "igualPrimeroUltimo",
@@ -1839,7 +1839,7 @@ window.EXERCISES = [
       "igualPrimeroUltimo([1, 2, 3, 1]) → true",
       "igualPrimeroUltimo([1, 2, 1]) → true"
     ],
-    "code": "public boolean igualPrimeroUltimo(int[] nums) {\n        if (nums.length >= 1) {\n            if (nums[0] == nums[nums.length-1]) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean igualPrimeroUltimo(int[] nums) {\n    if (nums.length >= 1) {\n        if (nums[0] == nums[nums.length-1]) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "suma3",
@@ -1853,7 +1853,7 @@ window.EXERCISES = [
       "suma3([5, 11, 2]) → 18",
       "suma3([7, 0, 0]) → 7"
     ],
-    "code": "public int suma3(int[] nums) {\n        return nums[0] + nums[1] + nums[2];\n    }"
+    "code": "public int suma3(int[] nums) {\n    return nums[0] + nums[1] + nums[2];\n}"
   },
   {
     "name": "maximo3",
@@ -1867,7 +1867,7 @@ window.EXERCISES = [
       "maximo3([11, 5, 9]) → [11, 11, 11]",
       "maximo3([2, 11, 3]) → [3, 3, 3]"
     ],
-    "code": "public int[] maximo3(int[] nums) {\n        if (nums[0] > nums[nums.length-1]) {\n            nums[0] = nums[0];\n            nums[1] = nums[0];\n            nums[2] = nums[0];\n        } else {\n            nums[0] = nums[nums.length-1];\n            nums[1] = nums[nums.length-1];\n            nums[2] = nums[nums.length-1];\n        }\n        return nums;\n    }"
+    "code": "public int[] maximo3(int[] nums) {\n    if (nums[0] > nums[nums.length-1]) {\n        nums[0] = nums[0];\n        nums[1] = nums[0];\n        nums[2] = nums[0];\n    } else {\n        nums[0] = nums[nums.length-1];\n        nums[1] = nums[nums.length-1];\n        nums[2] = nums[nums.length-1];\n    }\n    return nums;\n}"
   },
   {
     "name": "laterales",
@@ -1881,7 +1881,7 @@ window.EXERCISES = [
       "laterales([1, 2, 3, 4]) → [1, 4]",
       "laterales([7, 4, 6, 2]) → [7, 2]"
     ],
-    "code": "public int[] laterales(int[] nums) {\n        return new int[] {nums[0], nums[nums.length-1]};\n    }"
+    "code": "public int[] laterales(int[] nums) {\n    return new int[] {nums[0], nums[nums.length-1]};\n}"
   },
   {
     "name": "ceroHastaUltimo",
@@ -1895,7 +1895,7 @@ window.EXERCISES = [
       "ceroHastaUltimo([1, 2]) → [0, 0, 0, 2]",
       "ceroHastaUltimo([3]) → [0, 3]"
     ],
-    "code": "public int[] ceroHastaUltimo(int[] nums) {\n        int longitud = nums.length * 2;\n        int[] cerosNums = new int[longitud];\n\n        cerosNums[longitud-1] = nums[nums.length-1];\n        \n        return cerosNums;\n    }"
+    "code": "public int[] ceroHastaUltimo(int[] nums) {\n    int longitud = nums.length * 2;\n    int[] cerosNums = new int[longitud];\n\n    cerosNums[longitud-1] = nums[nums.length-1];\n\n    return cerosNums;\n}"
   },
   {
     "name": "comienza1",
@@ -1909,7 +1909,7 @@ window.EXERCISES = [
       "comienza1([7, 2, 3], [1]) → 1",
       "comienza1([1, 2], []) → 1"
     ],
-    "code": "public int comienza1(int[] a, int[] b) {\n        if (a.length > 0 && a[0] == 1) {\n            if (b.length > 0 && b[0] == 1) {\n                return 2;\n            } else {\n                return 1;\n            }\n        }\n        if (b.length > 0 && b[0] == 1) {\n            return 1;\n        }\n        return 0;\n    }"
+    "code": "public int comienza1(int[] a, int[] b) {\n    if (a.length > 0 && a[0] == 1) {\n        if (b.length > 0 && b[0] == 1) {\n            return 2;\n        } else {\n            return 1;\n        }\n    }\n    if (b.length > 0 && b[0] == 1) {\n        return 1;\n    }\n    return 0;\n}"
   },
   {
     "name": "juntasDos",
@@ -1923,7 +1923,7 @@ window.EXERCISES = [
       "juntasDos([4, 4], [2, 2]) → [4, 4, 2, 2]",
       "juntasDos([9, 2], [3, 4]) → [9, 2, 3, 4]"
     ],
-    "code": "public int[] juntasDos(int[] a, int[] b) {\n        return new int[] {a[0], a[1], b[0], b[1]};\n    }"
+    "code": "public int[] juntasDos(int[] a, int[] b) {\n    return new int[] {a[0], a[1], b[0], b[1]};\n}"
   },
   {
     "name": "maximoTres",
@@ -1937,7 +1937,7 @@ window.EXERCISES = [
       "maximoTres([1, 5, 3]) → 5",
       "maximoTres([5, 2, 3]) → 5"
     ],
-    "code": "public int maximoTres(int[] nums) {\n        int mayor = 0;\n        \n        for (int i = 0; i < nums.length; i++) {\n            if (i == 0 || i == nums.length/2 || i == nums.length-1) {\n                if (mayor < nums[i]) {\n                    mayor= nums[i];\n                }\n            }\n        }\n        return mayor;\n    }"
+    "code": "public int maximoTres(int[] nums) {\n    int mayor = 0;\n\n    for (int i = 0; i < nums.length; i++) {\n        if (i == 0 || i == nums.length/2 || i == nums.length-1) {\n            if (mayor < nums[i]) {\n                mayor= nums[i];\n            }\n        }\n    }\n    return mayor;\n}"
   },
   {
     "name": "hacer2",
@@ -1951,7 +1951,7 @@ window.EXERCISES = [
       "hacer2([4], [1, 2, 3]) → [4, 1]",
       "hacer2([], [1, 2]) → [1, 2]"
     ],
-    "code": "public int[] hacer2(int[] a, int[] b) {\n        if (a.length >= 2) {\n            return new int[] {a[0], a[1]};\n        }\n        if (a.length == 1) {\n            return new int[] {a[0], b[0]};\n        }\n        return b;\n    }"
+    "code": "public int[] hacer2(int[] a, int[] b) {\n    if (a.length >= 2) {\n        return new int[] {a[0], a[1]};\n    }\n    if (a.length == 1) {\n        return new int[] {a[0], b[0]};\n    }\n    return b;\n}"
   },
   {
     "name": "makePi",
@@ -1963,7 +1963,7 @@ window.EXERCISES = [
     "examples": [
       "crearPi() → [3, 1, 4]"
     ],
-    "code": "public int[] makePi() {\n        return new int[] {3, 1, 4};\n    }"
+    "code": "public int[] makePi() {\n    return new int[] {3, 1, 4};\n}"
   },
   {
     "name": "cambiarAIzquierda3",
@@ -1977,7 +1977,7 @@ window.EXERCISES = [
       "cambiarAIzquierda3([5, 11, 9]) → [11, 9, 5]",
       "cambiarAIzquierda3([7, 0, 0]) → [0, 0, 7]"
     ],
-    "code": "public int[] cambiarAIzquierda3(int[] nums) {\n        return new int[] {nums[1], nums[2], nums[0]};\n    }"
+    "code": "public int[] cambiarAIzquierda3(int[] nums) {\n    return new int[] {nums[1], nums[2], nums[0]};\n}"
   },
   {
     "name": "suma2",
@@ -1991,7 +1991,7 @@ window.EXERCISES = [
       "suma2([1, 1]) → 2",
       "suma2([1, 1, 1, 1]) → 2"
     ],
-    "code": "public int suma2(int[] nums) {\n        int suma = 0;\n        \n        if (nums.length >= 2) {\n            suma += nums[0];\n            suma += nums[1];\n        } else if (nums.length == 1) {\n            suma = nums[0];\n        }\n        return suma;\n    }"
+    "code": "public int suma2(int[] nums) {\n    int suma = 0;\n\n    if (nums.length >= 2) {\n        suma += nums[0];\n        suma += nums[1];\n    } else if (nums.length == 1) {\n        suma = nums[0];\n    }\n    return suma;\n}"
   },
   {
     "name": "tiene2O3",
@@ -2005,7 +2005,7 @@ window.EXERCISES = [
       "tiene2O3([4, 3]) → true",
       "tiene2O3([4, 5]) → false"
     ],
-    "code": "public boolean tiene2O3(int[] nums) {\n        if (nums[0] == 2 || nums[1] == 3) return true;\n        if (nums[0] == 3 || nums[1] == 2) return true;\n        return false;\n    }"
+    "code": "public boolean tiene2O3(int[] nums) {\n    if (nums[0] == 2 || nums[1] == 3) return true;\n    if (nums[0] == 3 || nums[1] == 2) return true;\n    return false;\n}"
   },
   {
     "name": "doble23",
@@ -2019,7 +2019,7 @@ window.EXERCISES = [
       "doble23([3, 3]) → true",
       "doble23([2, 3]) → false"
     ],
-    "code": "public boolean doble23(int[] nums) {\n        if (nums.length > 1) {\n            if (nums[0] == 2 && nums[1] == 2) {\n                return true;\n            }\n            if (nums[0] == 3 && nums[1] == 3) {\n                return true;\n            }\n        }\n        return false;\n    }"
+    "code": "public boolean doble23(int[] nums) {\n    if (nums.length > 1) {\n        if (nums[0] == 2 && nums[1] == 2) {\n            return true;\n        }\n        if (nums[0] == 3 && nums[1] == 3) {\n            return true;\n        }\n    }\n    return false;\n}"
   },
   {
     "name": "dosGrandes",
@@ -2033,7 +2033,7 @@ window.EXERCISES = [
       "dosGrandes([3, 4], [1, 2]) → [3, 4]",
       "dosGrandes([1, 1], [1, 2]) → [1, 2]"
     ],
-    "code": "public int[] dosGrandes(int[] a, int[] b) {\n        if (a[0] + a[1] > b[0] + b[1]) {\n            return a;\n        } else if (a[0] + a[1] < b[0] + b[1]) {\n            return b;\n        } else {\n            return a;\n        }\n    }"
+    "code": "public int[] dosGrandes(int[] a, int[] b) {\n    if (a[0] + a[1] > b[0] + b[1]) {\n        return a;\n    } else if (a[0] + a[1] < b[0] + b[1]) {\n        return b;\n    } else {\n        return a;\n    }\n}"
   },
   {
     "name": "cambiaFinal",
@@ -2047,7 +2047,7 @@ window.EXERCISES = [
       "cambiaFinal([1, 2, 3]) → [3, 2, 1]",
       "cambiaFinal([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]"
     ],
-    "code": "public int[] cambiaFinal(int[] nums) {\n        int tmp = nums[0];\n        nums[0] = nums[nums.length-1];\n        nums[nums.length-1] = tmp;\n        return nums;\n    }"
+    "code": "public int[] cambiaFinal(int[] nums) {\n    int tmp = nums[0];\n    nums[0] = nums[nums.length-1];\n    nums[nums.length-1] = tmp;\n    return nums;\n}"
   },
   {
     "name": "dosElementos",
@@ -2061,7 +2061,7 @@ window.EXERCISES = [
       "dosElementos([1, 2]) → [1, 2]",
       "dosElementos([1]) → [1]"
     ],
-    "code": "public int[] dosElementos(int[] nums) {\n        if (nums.length >= 2) {\n            return new int[] {nums[0], nums[1]};\n        } else {\n            return nums;\n        }\n    }"
+    "code": "public int[] dosElementos(int[] nums) {\n    if (nums.length >= 2) {\n        return new int[] {nums[0], nums[1]};\n    } else {\n        return nums;\n    }\n}"
   },
   {
     "name": "primerosElementos",
@@ -2075,7 +2075,7 @@ window.EXERCISES = [
       "primerosElementos([1], [2]) → [1, 2]",
       "primerosElementos([1, 7], []) → [1]"
     ],
-    "code": "public int[] primerosElementos(int[] a, int[] b) {\n        if (a.length == 0 && b.length == 0) {\n            return new int[0];\n        } else if (a.length >= 1) {\n            if (b.length >= 1) {\n                return new int[] {a[0], b[0]};\n            } else {\n                return new int[] {a[0]};\n            }\n        } else {\n            return new int[] {b[0]};\n        }\n    }"
+    "code": "public int[] primerosElementos(int[] a, int[] b) {\n    if (a.length == 0 && b.length == 0) {\n        return new int[0];\n    } else if (a.length >= 1) {\n        if (b.length >= 1) {\n            return new int[] {a[0], b[0]};\n        } else {\n            return new int[] {a[0]};\n        }\n    } else {\n        return new int[] {b[0]};\n    }\n}"
   },
   {
     "name": "hola_nombre",
@@ -2481,7 +2481,7 @@ window.EXERCISES = [
       "frente3('Chocolate') → 'ChoChoCho'",
       "frente3('abc') → 'abcabcabc'"
     ],
-    "code": "def frente3(cadena):\n  return cadena[0:3] * 3"
+    "code": "def frente3(cadena):\n    return cadena[0:3] * 3"
   },
   {
     "name": "repetir_cadena",
@@ -2983,7 +2983,7 @@ window.EXERCISES = [
       "cerca_diez(17) → Falso",
       "cerca_diez(19) → Verdadero"
     ],
-    "code": "def cerca_diez(num):\n    if num % 10 == 0:\n        return True\n\n    if num % 10 == 1:\n        return True\n\n    if num % 10 == 2:\n        return True\n\n    if num % 10 == 8:\n        return True\n\n\n    if num % 10 == 9:\n        return True\n    else:\n        return False"
+    "code": "def cerca_diez(num):\n    if num % 10 == 0:\n        return True\n\n    if num % 10 == 1:\n        return True\n\n    if num % 10 == 2:\n        return True\n\n    if num % 10 == 8:\n        return True\n\n    if num % 10 == 9:\n        return True\n    else:\n        return False"
   },
   {
     "name": "hacer_ladrillos",

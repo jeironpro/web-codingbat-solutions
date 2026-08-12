@@ -2,6 +2,16 @@
   {
     "date": "2026-08-12",
     "macrostructure": "Portfolio Grid",
+    "theme": "Cobalt (continuación)",
+    "enrichment": "none (code-as-hero)",
+    "brief": "web-codingbat-solutions - soluciones en modal, responsive 100% (nav 1 fila a 320, sheets en movil) e indentacion normalizada en generate-data.py",
+    "nav": "N13 inline-CmdK-pill (mantenida)",
+    "footer": "Ft2 inline-rule (mantenida)",
+    "motion": "composed (reveal + type-in una vez)"
+  },
+  {
+    "date": "2026-08-12",
+    "macrostructure": "Portfolio Grid",
     "theme": "Cobalt",
     "enrichment": "none (code-as-hero)",
     "brief": "web-codingbat-solutions - rediseno completo con tema Cobalt: hero con codigo, banda de stats, tarjetas con ver solucion y paleta CmdK",

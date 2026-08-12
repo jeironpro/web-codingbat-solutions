@@ -25,6 +25,13 @@ const cmdkInput = document.getElementById('cmdk-input');
 const cmdkResults = document.getElementById('cmdk-results');
 const searchpillEl = document.getElementById('searchpill');
 
+const modalEl = document.getElementById('modal');
+const modalBadge = document.getElementById('modal-badge');
+const modalTitle = document.getElementById('modal-title');
+const modalMeta = document.getElementById('modal-meta');
+const modalBody = document.getElementById('modal-body');
+const modalClose = document.getElementById('modal-close');
+
 const state = { q: '', lang: 'all', cat: 'all', page: 1 };
 
 const prefersReduced = () =>
@@ -133,7 +140,7 @@ function statementHtml(ex) {
     : '<p>Sin enunciado disponible.</p>';
 }
 
-function cardHtml(ex, idx) {
+function solutionHtml(ex, idx) {
   const examples = ex.examples.length
     ? '<div class="solution__examples"><h4>Ejemplos</h4><ul>' +
       ex.examples.map(x =>
@@ -143,6 +150,20 @@ function cardHtml(ex, idx) {
     : '';
 
   return (
+    '<div class="solution__stmt">' + statementHtml(ex) + '</div>' +
+    examples +
+    '<div class="solution__code">' +
+      '<div class="solution__bar">' +
+        '<span class="solution__label">solución</span>' +
+        '<button class="copy" type="button" data-idx="' + idx + '">copiar</button>' +
+      '</div>' +
+      '<pre><code>' + highlight(ex.code, ex.lang) + '</code></pre>' +
+    '</div>'
+  );
+}
+
+function cardHtml(ex, idx) {
+  return (
     '<article class="card reveal" id="ex-' + idx + '">' +
       '<header class="card__head">' +
         '<span class="card__badge">[' + ex.lang + ']</span>' +
@@ -151,18 +172,7 @@ function cardHtml(ex, idx) {
       '<h3 class="card__name">' + escapeHtml(ex.name) + '()</h3>' +
       '<p class="card__file">' + escapeHtml(ex.file) + '</p>' +
       '<p class="card__preview">' + escapeHtml(previewLine(ex.code)) + '</p>' +
-      '<button class="card__view" type="button" data-idx="' + idx + '" aria-expanded="false" aria-controls="sol-' + idx + '">Ver solución →</button>' +
-      '<div class="card__solution" id="sol-' + idx + '" hidden>' +
-        '<div class="solution__stmt">' + statementHtml(ex) + '</div>' +
-        examples +
-        '<div class="solution__code">' +
-          '<div class="solution__bar">' +
-            '<span class="solution__label">solución</span>' +
-            '<button class="copy" type="button" data-idx="' + idx + '">copiar</button>' +
-          '</div>' +
-          '<pre><code>' + highlight(ex.code, ex.lang) + '</code></pre>' +
-        '</div>' +
-      '</div>' +
+      '<button class="card__view" type="button" data-idx="' + idx + '">Ver solución →</button>' +
     '</article>'
   );
 }
@@ -287,34 +297,72 @@ function onPageClick(e) {
 
 paginationEls.forEach(el => el.addEventListener('click', onPageClick));
 
-/* ---------- Tarjetas: ver solución y copiar ---------- */
+/* ---------- Tarjetas: abrir solución en el modal ---------- */
 
-resultsEl.addEventListener('click', async e => {
-  const copyBtn = e.target.closest('.copy');
-  if (copyBtn) {
-    const idx = Number(copyBtn.dataset.idx);
-    await copyText(EXERCISES[idx].code);
-    copyBtn.classList.add('is-copied');
-    const original = copyBtn.textContent;
-    copyBtn.textContent = 'copiado ✓';
-    setTimeout(() => {
-      copyBtn.classList.remove('is-copied');
-      copyBtn.textContent = original;
-    }, 1200);
-    return;
-  }
+async function onCopyClick(copyBtn) {
+  const idx = Number(copyBtn.dataset.idx);
+  await copyText(EXERCISES[idx].code);
+  copyBtn.classList.add('is-copied');
+  const original = copyBtn.textContent;
+  copyBtn.textContent = 'copiado ✓';
+  setTimeout(() => {
+    copyBtn.classList.remove('is-copied');
+    copyBtn.textContent = original;
+  }, 1200);
+}
 
+resultsEl.addEventListener('click', e => {
   const viewBtn = e.target.closest('.card__view');
   if (!viewBtn) return;
-  const card = viewBtn.closest('.card');
-  if (!card) return;
-  const solution = card.querySelector('.card__solution');
-  const willOpen = solution.hidden;
-  solution.hidden = !willOpen;
-  viewBtn.setAttribute('aria-expanded', String(willOpen));
-  viewBtn.textContent = willOpen ? 'Ocultar solución ↑' : 'Ver solución →';
-  card.classList.toggle('is-open', willOpen);
+  openSolution(Number(viewBtn.dataset.idx));
 });
+
+modalBody.addEventListener('click', e => {
+  const copyBtn = e.target.closest('.copy');
+  if (copyBtn) onCopyClick(copyBtn);
+});
+
+/* ---------- Modal de solución ---------- */
+
+let modalOpen = false;
+let modalTrigger = null;
+
+function openSolution(idx) {
+  const ex = EXERCISES[idx];
+  if (!ex) return;
+  modalTrigger = document.activeElement;
+  modalBadge.textContent = '[' + ex.lang + ']';
+  modalTitle.textContent = ex.name + '()';
+  modalMeta.textContent = ex.file + ' · ' + ex.category.toLowerCase() + ' · ' + ex.level.toLowerCase();
+  modalBody.innerHTML = solutionHtml(ex, idx);
+  modalEl.classList.add('is-open');
+  modalEl.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  modalOpen = true;
+  setTimeout(() => modalClose.focus(), 0);
+}
+
+function closeSolution() {
+  modalOpen = false;
+  modalEl.classList.remove('is-open');
+  modalEl.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  if (modalTrigger && modalTrigger.focus) modalTrigger.focus();
+}
+
+modalClose.addEventListener('click', closeSolution);
+modalEl.addEventListener('click', e => {
+  if (e.target.closest('[data-close]')) closeSolution();
+});
+
+function trapFocus(e) {
+  const focusables = modalEl.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+  if (!focusables.length) return;
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
 
 /* ---------- Nav: filtros de lenguaje ---------- */
 
@@ -392,17 +440,8 @@ function openExercise(idx) {
   renderChips();
   render();
   const card = document.getElementById('ex-' + idx);
-  if (card) {
-    card.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' });
-    const solution = card.querySelector('.card__solution');
-    const viewBtn = card.querySelector('.card__view');
-    if (solution && solution.hidden && viewBtn) {
-      solution.hidden = false;
-      viewBtn.setAttribute('aria-expanded', 'true');
-      viewBtn.textContent = 'Ocultar solución ↑';
-      card.classList.add('is-open');
-    }
-  }
+  if (card) card.scrollIntoView({ behavior: prefersReduced() ? 'auto' : 'smooth', block: 'start' });
+  openSolution(idx);
 }
 
 searchpillEl.addEventListener('click', () => (cmdkOpen ? closeCmdk() : openCmdk()));
@@ -411,8 +450,8 @@ cmdkEl.addEventListener('click', e => {
   if (e.target.closest('[data-close]')) { closeCmdk(); return; }
   const item = e.target.closest('.cmdk__item');
   if (item) {
-    openExercise(Number(item.dataset.idx));
     closeCmdk();
+    openExercise(Number(item.dataset.idx));
   }
 });
 
@@ -424,14 +463,19 @@ document.addEventListener('keydown', e => {
     cmdkOpen ? closeCmdk() : openCmdk();
     return;
   }
+  if (modalOpen) {
+    if (e.key === 'Escape') { e.preventDefault(); closeSolution(); return; }
+    if (e.key === 'Tab') { trapFocus(e); return; }
+    return;
+  }
   if (!cmdkOpen) return;
   if (e.key === 'Escape') { closeCmdk(); return; }
   if (e.key === 'ArrowDown') { e.preventDefault(); moveCmdk(1); return; }
   if (e.key === 'ArrowUp') { e.preventDefault(); moveCmdk(-1); return; }
   if (e.key === 'Enter' && cmdkActive >= 0) {
     e.preventDefault();
-    openExercise(cmdkItems[cmdkActive].i);
     closeCmdk();
+    openExercise(cmdkItems[cmdkActive].i);
   }
 });
 

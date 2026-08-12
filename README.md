@@ -18,7 +18,7 @@ enunciado, ejemplos y código.
 ├── js/app.js               # Tarjetas, ver solución, búsqueda, filtros, paginación y paleta ⌘K
 ├── js/data.js              # Datos de los ejercicios (generado, no editar a mano)
 ├── tools/
-│   ├── generate-data.py    # Genera js/data.js desde los archivos de soluciones
+│   ├── generate-data.py    # Genera js/data.js desde los archivos de soluciones (normaliza indentación)
 │   └── smoke-test.js       # Smoke test de la web (Node)
 ├── coding-bat-java/        # Soluciones en Java
 └── coding-bat-python/      # Soluciones en Python
@@ -28,11 +28,13 @@ enunciado, ejemplos y código.
 
 Diseñada con la skill **Hallmark** (macrostructure Portfolio Grid · theme Cobalt: papel frío,
 acento azul eléctrico, Space Grotesk + Inter + JetBrains Mono). La web muestra los 222 ejercicios
-en una rejilla de tarjetas con su enunciado, ejemplos de entrada/salida, la solución con resaltado
-de sintaxis y botón para copiarla (botón **Ver solución** en cada tarjeta).
+en una rejilla de tarjetas; el botón **Ver solución** abre un **modal** con el enunciado, los
+ejemplos de entrada/salida, la solución con resaltado de sintaxis (indentación normalizada a
+4 espacios) y botón para copiarla.
 
 Incluye búsqueda, filtros por lenguaje y categoría, paginación (10 por página) y una **paleta de
 comandos ⌘K** (pulsa `⌘K` o `Ctrl+K` para buscar y saltar a cualquier ejercicio por teclado).
+En móvil, el modal y la paleta se abren a pantalla completa.
 
 Para verla en local, sirve la raíz del proyecto con cualquier servidor estático, por ejemplo:
 

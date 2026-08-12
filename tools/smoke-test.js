@@ -113,7 +113,7 @@ async function main() {
   check('el botón anterior está deshabilitado en la página 1', paginationHtml().includes('data-page="prev" disabled'));
   check('la primera tarjeta contiene el ejercicio correcto', resultsHtml().includes(data[0].name + '()'));
   check('las tarjetas incluyen el botón ver solución', resultsHtml().includes('Ver solución'));
-  check('las tarjetas incluyen el código resaltado', resultsHtml().includes('class="tok '));
+  check('las tarjetas muestran la línea de preview', resultsHtml().includes('card__preview'));
   check('cada ejercicio tiene lenguaje válido', data.every(e => ['java', 'python'].includes(e.lang)));
   check('cada ejercicio tiene categoría y nivel', data.every(e => e.category && e.level));
 
@@ -123,30 +123,27 @@ async function main() {
   check('la página 2 empieza en el ejercicio 11', resultsHtml().includes(data[10].name + '()'));
   check('la paginación muestra página 2 de 23', paginationHtml().includes('página 2 de 23'));
 
-  /* Copiar con filtro de python (verifica que el índice apunta al ejercicio correcto) */
+  /* Modal: abrir la solución desde la tarjeta (filtro python, índice correcto) */
   fakeClick(elements['lang-chips'], 'click', '.chip', elements['lang-chips'].children[2]); // chip python
   const firstPythonIdx = data.findIndex(e => e.lang === 'python');
   const firstCopyIdx = Number(resultsHtml().match(/data-idx="(\d+)"/)[1]);
   check('el filtro python reinicia a la página 1', paginationHtml().includes('página 1 de 8'));
   check('la primera tarjeta python tiene el índice correcto', firstCopyIdx === firstPythonIdx);
-  await resultsElClickCopy(firstPythonIdx);
-  check('copiar guarda el código del ejercicio correcto', copied === data[firstPythonIdx].code);
-
-  /* Ver solución: alterna la visibilidad */
-  const solEl = new El('div');
-  solEl.hidden = true;
-  const fakeCard = { classList: classListFor({}), querySelector: sel => (sel === '.card__solution' ? solEl : null) };
-  const viewBtn = {
-    dataset: {}, textContent: '', attrs: {}, classList: classListFor({}),
-    setAttribute: function (k, v) { this.attrs[k] = v; },
-    closest: sel => (sel === '.card' ? fakeCard : null),
-  };
-  await elements['results'].listeners['click'][0]({
+  await openCardSolution(firstPythonIdx);
+  check('el modal se abre', elements['modal'].classList.contains('is-open'));
+  check('el modal muestra el ejercicio correcto', elements['modal-title'].textContent === data[firstPythonIdx].name + '()');
+  check('el modal muestra la solución resaltada', elements['modal-body'].innerHTML.includes('class="tok '));
+  check('el modal incluye el botón copiar', elements['modal-body'].innerHTML.includes('class="copy"'));
+  await elements['modal-body'].listeners['click'][0]({
     target: {
-      closest: sel => (sel === '.copy' ? null : sel === '.card__view' ? viewBtn : sel === '.card' ? fakeCard : null),
+      closest: sel => (sel === '.copy'
+        ? { dataset: { idx: String(firstPythonIdx) }, classList: { add() {}, remove() {} }, textContent: '' }
+        : null),
     },
   });
-  check('ver solución abre el panel de código', solEl.hidden === false);
+  check('copiar dentro del modal guarda el código correcto', copied === data[firstPythonIdx].code);
+  keyHandlers[0]({ key: 'Escape', preventDefault() {} });
+  check('esc cierra el modal', elements['modal'].classList.contains('is-open') === false);
 
   /* Búsqueda: filtra y reinicia la página (con el filtro de lenguaje en 'todos') */
   fakeClick(elements['lang-chips'], 'click', '.chip', elements['lang-chips'].children[0]); // chip todos
@@ -154,8 +151,8 @@ async function main() {
   searchEl.value = 'fizz';
   searchEl.listeners['input'][0]();
   check('la búsqueda filtra resultados',
-    countText().includes(' de ') &&
-    resultsHtml().toLowerCase().includes('fizz') &&
+    countText().includes('2 de 222') &&
+    resultsHtml().includes('cadenaEfervescencia()') &&
     paginationHtml().includes('página 1 de'));
 
   /* Estado vacío y limpiar filtros */
@@ -178,18 +175,15 @@ async function main() {
   cmdkInput.listeners['input'][0]();
   check('la paleta filtra por nombre', elements['cmdk-results'].innerHTML.includes('diferencia21'));
   keyHandlers[0]({ key: 'Enter', preventDefault() {} });
-  check('enter en la paleta abre el ejercicio y cierra', 
+  check('enter en la paleta abre el ejercicio en el modal y cierra', 
     resultsHtml().includes('diferencia21()') &&
-    elements['cmdk'].classList.contains('is-open') === false);
+    elements['cmdk'].classList.contains('is-open') === false &&
+    elements['modal'].classList.contains('is-open'));
   check('la paleta se restableció a todos los ejercicios', countText().includes('222 ejercicios'));
 
-  async function resultsElClickCopy(idx) {
+  async function openCardSolution(idx) {
     await elements['results'].listeners['click'][0]({
-      target: {
-        closest: sel => (sel === '.copy'
-          ? { dataset: { idx: String(idx) }, classList: { add() {}, remove() {} }, textContent: '' }
-          : null),
-      },
+      target: { closest: sel => (sel === '.card__view' ? { dataset: { idx: String(idx) } } : null) },
     });
   }
 
