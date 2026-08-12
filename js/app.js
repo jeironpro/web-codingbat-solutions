@@ -12,6 +12,7 @@ const emptyEl = document.getElementById('empty');
 const countEl = document.getElementById('count');
 const statsEl = document.getElementById('stats');
 const searchEl = document.getElementById('search');
+const clearEl = document.getElementById('clear');
 const langChipsEl = document.getElementById('lang-chips');
 const catChipsEl = document.getElementById('cat-chips');
 
@@ -82,7 +83,7 @@ function highlight(code, lang) {
 
 /* ---------- Renderizado ---------- */
 
-function cardHtml(ex, idx) {
+function rowHtml(ex, idx) {
   const stmt = ex.statement
     ? ex.statement.split(/\n{2,}/)
         .map(p => '<p>' + escapeHtml(p).replace(/\n/g, '<br>') + '</p>')
@@ -91,30 +92,29 @@ function cardHtml(ex, idx) {
 
   const examples = ex.examples.length
     ? '<div class="examples"><h4>Ejemplos</h4><ul>' +
-      ex.examples.map(x => '<li><code>' + escapeHtml(x) + '</code></li>').join('') +
+      ex.examples.map(x =>
+        '<li><code>' + escapeHtml(x).replace('→', '<span class="arrow">→</span>') + '</code></li>'
+      ).join('') +
       '</ul></div>'
     : '';
 
-  const langLabel = ex.lang === 'java' ? 'Java' : 'Python';
-  const langIcon = ex.lang === 'java' ? '☕' : '🐍';
-
   return (
-    '<article class="card" id="ex-' + idx + '">' +
-      '<header class="card-head">' +
-        '<h2 class="card-title">' + escapeHtml(ex.name) + '</h2>' +
-        '<div class="badges">' +
-          '<span class="badge lang-' + ex.lang + '">' + langLabel + '</span>' +
-          '<span class="badge">' + escapeHtml(ex.category) + '</span>' +
-          '<span class="badge">' + escapeHtml(ex.level) + '</span>' +
+    '<article class="row" id="ex-' + idx + '">' +
+      '<header class="row-head">' +
+        '<h2 class="row-title">' + escapeHtml(ex.name) + '()</h2>' +
+        '<div class="row-meta">' +
+          '<span class="lang lang-' + ex.lang + '">' + ex.lang + '</span>' +
+          ' · ' + escapeHtml(ex.category.toLowerCase()) +
+          ' · ' + escapeHtml(ex.level.toLowerCase()) +
+          ' · ' + escapeHtml(ex.file) +
         '</div>' +
       '</header>' +
-      '<p class="card-file">📄 ' + escapeHtml(ex.file) + '</p>' +
       '<div class="statement">' + stmt + '</div>' +
       examples +
       '<div class="code">' +
         '<div class="code-head">' +
-          '<span>' + langIcon + ' Solución</span>' +
-          '<button class="copy" type="button" data-idx="' + idx + '">Copiar</button>' +
+          '<span class="code-head__label">solución</span>' +
+          '<button class="copy" type="button" data-idx="' + idx + '">copiar</button>' +
         '</div>' +
         '<pre><code>' + highlight(ex.code, ex.lang) + '</code></pre>' +
       '</div>' +
@@ -133,7 +133,7 @@ function render() {
       ex.code.toLowerCase().includes(q))
   );
 
-  resultsEl.innerHTML = list.map((ex, i) => cardHtml(ex, i)).join('');
+  resultsEl.innerHTML = list.map((ex, i) => rowHtml(ex, i)).join('');
   emptyEl.hidden = list.length > 0;
   countEl.textContent = list.length === EXERCISES.length
     ? EXERCISES.length + ' ejercicios'
@@ -153,7 +153,7 @@ function makeChip(label, value, active) {
 
 function renderChips() {
   langChipsEl.innerHTML = '';
-  for (const [value, label] of [['all', 'Todos'], ['java', 'Java'], ['python', 'Python']]) {
+  for (const [value, label] of [['all', 'todos'], ['java', 'java'], ['python', 'python']]) {
     langChipsEl.appendChild(makeChip(label, value, state.lang === value));
   }
 
@@ -161,9 +161,9 @@ function renderChips() {
   const cats = order.filter(c => EXERCISES.some(e => e.category === c));
   const extras = [...new Set(EXERCISES.map(e => e.category))].filter(c => !order.includes(c)).sort();
   catChipsEl.innerHTML = '';
-  catChipsEl.appendChild(makeChip('Todas', 'all', state.cat === 'all'));
+  catChipsEl.appendChild(makeChip('todas', 'all', state.cat === 'all'));
   for (const c of cats.concat(extras)) {
-    catChipsEl.appendChild(makeChip(c, c, state.cat === c));
+    catChipsEl.appendChild(makeChip(c.toLowerCase(), c, state.cat === c));
   }
 }
 
@@ -183,7 +183,31 @@ catChipsEl.addEventListener('click', e => {
   render();
 });
 
-document.querySelectorAll('.nav-link').forEach(btn => {
+/* ---------- Búsqueda ---------- */
+
+let debounce;
+searchEl.addEventListener('input', () => {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => {
+    state.q = searchEl.value;
+    render();
+  }, 250);
+});
+
+/* ---------- Limpiar filtros ---------- */
+
+clearEl.addEventListener('click', () => {
+  state.q = '';
+  state.lang = 'all';
+  state.cat = 'all';
+  searchEl.value = '';
+  renderChips();
+  render();
+});
+
+/* ---------- Nav N8 (flags) ---------- */
+
+document.querySelectorAll('.nav-flag[data-lang]').forEach(btn => {
   btn.addEventListener('click', () => {
     state.lang = btn.dataset.lang;
     state.q = '';
@@ -194,17 +218,6 @@ document.querySelectorAll('.nav-link').forEach(btn => {
   });
 });
 
-/* ---------- Búsqueda ---------- */
-
-let debounce;
-searchEl.addEventListener('input', () => {
-  clearTimeout(debounce);
-  debounce = setTimeout(() => {
-    state.q = searchEl.value;
-    render();
-  }, 150);
-});
-
 /* ---------- Copiar solución ---------- */
 
 resultsEl.addEventListener('click', async e => {
@@ -213,9 +226,12 @@ resultsEl.addEventListener('click', async e => {
   const ex = EXERCISES[Number(btn.dataset.idx)];
   if (!ex) return;
   await copyText(ex.code);
-  const original = btn.textContent;
-  btn.textContent = '¡Copiado!';
-  setTimeout(() => { btn.textContent = original; }, 1500);
+  btn.classList.add('is-copied');
+  btn.textContent = 'copiado';
+  setTimeout(() => {
+    btn.classList.remove('is-copied');
+    btn.textContent = 'copiar';
+  }, 2500);
 });
 
 /* ---------- Inicio ---------- */
@@ -223,11 +239,13 @@ resultsEl.addEventListener('click', async e => {
 function renderStats() {
   const files = new Set(EXERCISES.map(e => e.file));
   const langs = new Set(EXERCISES.map(e => e.lang));
-  statsEl.innerHTML =
-    '<span class="stat"><strong>' + EXERCISES.length + '</strong> ejercicios</span>' +
-    '<span class="stat"><strong>' + files.size + '</strong> archivos</span>' +
-    '<span class="stat"><strong>' + langs.size + '</strong> lenguajes</span>' +
-    '<span class="stat"><strong>' + new Set(EXERCISES.map(e => e.category)).size + '</strong> categorías</span>';
+  const cats = new Set(EXERCISES.map(e => e.category));
+  const java = EXERCISES.filter(e => e.lang === 'java').length;
+  const python = EXERCISES.filter(e => e.lang === 'python').length;
+  const year = new Date().getFullYear();
+  statsEl.textContent =
+    EXERCISES.length + ' ejercicios · ' + java + ' java · ' + python + ' python · ' +
+    cats.size + ' categorías · ' + files.size + ' archivos · ' + year;
 }
 
 renderStats();

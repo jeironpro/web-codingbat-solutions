@@ -2,64 +2,72 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CodingBat Soluciones · Java y Python</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CodingBat Soluciones — ejercicios resueltos en Java y Python</title>
   <meta name="description" content="Ejercicios de CodingBat resueltos en Java y Python: enunciados, ejemplos y soluciones de cada problema.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230d1117'/><text x='13' y='46' font-family='monospace' font-size='38' font-weight='700' fill='%2379e08c'>&gt;_</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-logo">⚡</span>
-        <span class="brand-name">CodingBat <strong>Soluciones</strong></span>
-      </a>
-      <nav class="nav">
-        <button class="nav-link" data-lang="java" type="button">Java</button>
-        <button class="nav-link" data-lang="python" type="button">Python</button>
-        <a href="#buscar">Buscar</a>
-        <a href="https://codingbat.com/" target="_blank" rel="noopener">CodingBat ↗</a>
+  <header class="nav-term">
+    <div class="container">
+      <nav class="nav-term__line" aria-label="Navegación">
+        <a class="nav-term__brand" href="index.html">codingbat<span class="accent">_soluciones</span></a>
+        <button class="nav-flag" type="button" data-lang="java">--java</button>
+        <button class="nav-flag" type="button" data-lang="python">--python</button>
+        <a class="nav-flag" href="#buscar">--buscar</a>
+        <span class="caret" aria-hidden="true">▮</span>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <h1>Ejercicios de CodingBat con sus <span class="accent">soluciones</span></h1>
-      <p class="lead">
-        Colección de ejercicios resueltos de
-        <a href="https://codingbat.com/" target="_blank" rel="noopener">CodingBat</a>
-        en <strong>Java</strong> y <strong>Python</strong>. Cada problema incluye su enunciado,
-        los ejemplos de entrada/salida y el código de la solución.
+      <h1 class="hero-title">Ejercicios resueltos de <span class="accent">CodingBat</span></h1>
+      <p class="hero-lead">
+        Soluciones en <strong>Java</strong> y <strong>Python</strong> con enunciado, ejemplos y código.
+        Colección de práctica: calentamiento, cadenas, lógica, matrices y listas.
       </p>
-      <div class="stats" id="stats"></div>
+      <p class="hero-meta" id="stats" aria-live="polite"></p>
     </section>
 
     <section class="toolbar" id="buscar">
-      <input id="search" type="search" placeholder="Buscar por nombre, enunciado o código…" autocomplete="off" spellcheck="false">
+      <label class="search">
+        <span class="search-prompt">$ buscar</span>
+        <input id="search" type="search" placeholder="nombre, enunciado o código…" autocomplete="off" spellcheck="false" aria-label="Buscar ejercicios">
+      </label>
       <div class="filters">
         <div class="filter-group">
-          <span class="filter-label">Lenguaje</span>
+          <span class="filter-label">lenguaje</span>
           <div class="chips" id="lang-chips"></div>
         </div>
         <div class="filter-group">
-          <span class="filter-label">Categoría</span>
+          <span class="filter-label">categoría</span>
           <div class="chips" id="cat-chips"></div>
         </div>
       </div>
-      <p class="count" id="count"></p>
+      <p class="count" id="count" aria-live="polite"></p>
     </section>
 
     <section id="results" class="results"></section>
-    <p id="empty" class="empty" hidden>No se encontraron ejercicios con esos filtros. Prueba con otra búsqueda.</p>
+
+    <div id="empty" class="empty" hidden>
+      <p class="empty-title">No hay resultados.</p>
+      <p class="empty-text">Ningún ejercicio coincide con tu búsqueda o los filtros activos.</p>
+      <button class="clear-btn" id="clear" type="button">Limpiar filtros</button>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>
-        Soluciones de <a href="https://codingbat.com/" target="_blank" rel="noopener">CodingBat</a> ·
-        Java y Python · Proyecto de portafolio · <a href="LICENSE">MIT</a>
+      <p class="colophon">
+        soluciones de <a href="https://codingbat.com/" target="_blank" rel="noopener">codingbat.com</a> en java y python — práctica, enunciado, ejemplos y código.
+      </p>
+      <p class="colophon-sub">
+        fuentes: coding-bat-java/ · coding-bat-python/ · js/data.js — genera: tools/generate-data.py · licencia MIT · 2026
       </p>
     </div>
   </footer>
